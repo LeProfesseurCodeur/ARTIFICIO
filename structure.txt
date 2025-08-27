@@ -1,0 +1,11 @@
+artificio-website/
+├── index.html
+├── styles.css
+├── script.js
+├── images/
+│   ├── hero-illustration.svg
+│   ├── about-visual.svg
+│   └── service-icons/
+└── assets/
+    ├── fonts/
+    └── favicon.ico

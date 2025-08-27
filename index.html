@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificio - L'art de transformer l'ordinaire en expériences d'exception</title>
+    <meta name="description" content="Agence digitale complète spécialisée en brand content, stratégie digitale, développement web et marketing digital. Transformons vos idées en expériences d'exception.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+     <!-- Ajoutez dans le <head> -->
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+</head>
+<body>
+    <div class="scroll-indicator"></div>
+    
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+        <span class="icon">🌙</span>
+    </button>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Artificio</a>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#accueil" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link">Services</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-grid">
+                            <a href="#" class="mega-menu-item">
+                                <span class="mega-menu-icon">💡</span>
+                                <div class="mega-menu-title">Conseil & Stratégie</div>
+                                <div class="mega-menu-desc">Stratégie digitale, cahiers des charges, numérique responsable</div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <span class="mega-menu-icon">🎨</span>
+                                <div class="mega-menu-title">Studio Graphique</div>
+                                <div class="mega-menu-desc">UI/UX Design, identité visuelle, création de logo</div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <span class="mega-menu-icon">💻</span>
+                                <div class="mega-menu-title">Développement Web</div>
+                                <div class="mega-menu-desc">Sites sur mesure, e-commerce, applications</div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <span class="mega-menu-icon">🔒</span>
+                                <div class="mega-menu-title">Maintenance & Sécurité</div>
+                                <div class="mega-menu-desc">Hébergement, sécurité, expertise domaine</div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <span class="mega-menu-icon">📱</span>
+                                <div class="mega-menu-title">Social Média</div>
+                                <div class="mega-menu-desc">Stratégie, content, community management</div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <span class="mega-menu-icon">📊</span>
+                                <div class="mega-menu-title">Marketing Digital</div>
+                                <div class="mega-menu-desc">SEO, campagnes sponsorisées, inbound marketing</div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#processus" class="nav-link">Processus</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">À Propos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav-cta-wrapper">
+                <a href="#contact" class="nav-link cta">Démarrer un projet</a>
+            </div>
+
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-menu-list">
+                <li class="mobile-menu-item"><a href="#accueil" class="mobile-menu-link">Accueil</a></li>
+                <li class="mobile-menu-item"><a href="#services" class="mobile-menu-link">Services</a></li>
+                <li class="mobile-menu-item"><a href="#processus" class="mobile-menu-link">Processus</a></li>
+                <li class="mobile-menu-item"><a href="#about" class="mobile-menu-link">À Propos</a></li>
+                <li class="mobile-menu-item"><a href="#contact" class="mobile-menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="custom-cursor"></div>
+        <div class="hero-orbs">
+            <div class="orb"></div>
+            <div class="orb"></div>
+            <div class="orb"></div>
+            <div class="orb"></div>
+            <div class="orb"></div>
+        </div>
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Artificio, l'art de transformer l'ordinaire en expériences d'exception</h1>
+                <p class="hero-subtitle">
+                    Agence digitale complète, nous créons des expériences qui marquent : brand content impactant, 
+                    stratégie digitale sur-mesure, développement web premium et solutions marketing innovantes.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">🚀 Démarrer mon projet</a>
+                    <a href="#services" class="btn btn-secondary">📁 Découvrir nos services</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-shape" onclick="triggerShapeAnimation()">✨</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nos Expertises</h2>
+                <p class="section-subtitle">
+                    Une gamme complète de services pour propulser votre présence digitale et créer des expériences mémorables.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <span class="service-icon">💡</span>
+                    <h3 class="service-title">Conseil & Stratégie Digitale</h3>
+                    <p class="service-desc">
+                        Nous définissons avec vous une stratégie digitale cohérente et sur-mesure pour atteindre vos objectifs business.
+                    </p>
+                    <ul class="service-features">
+                        <li>Stratégie digitale & communication</li>
+                        <li>Rédaction cahiers des charges</li>
+                        <li>Numérique responsable</li>
+                        <li>Stratégie d'animation</li>
+                        <li>Formation équipes</li>
+                        <li>Identité de marque</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <span class="service-icon">🎨</span>
+                    <h3 class="service-title">Studio Graphique UI/UX</h3>
+                    <p class="service-desc">
+                        Création d'expériences visuelles impactantes qui reflètent parfaitement votre identité de marque.
+                    </p>
+                    <ul class="service-features">
+                        <li>Charte graphique complète</li>
+                        <li>Identité visuelle digitale</li>
+                        <li>UI/UX Design interfaces</li>
+                        <li>Création de logo</li>
+                        <li>Invitations digitales</li>
+                        <li>Landing pages optimisées</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <span class="service-icon">💻</span>
+                    <h3 class="service-title">Développement Web</h3>
+                    <p class="service-desc">
+                        Solutions web sur-mesure, performantes et évolutives, adaptées à vos besoins spécifiques.
+                    </p>
+                    <ul class="service-features">
+                        <li>Sites web sur mesure</li>
+                        <li>E-commerce & marketplaces</li>
+                        <li>Plateformes e-learning</li>
+                        <li>Applications web & mobile</li>
+                        <li>Refonte sites existants</li>
+                        <li>Accessibilité numérique</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <span class="service-icon">🔒</span>
+                    <h3 class="service-title">Maintenance & Sécurité</h3>
+                    <p class="service-desc">
+                        Protection et optimisation continue de vos actifs numériques pour une tranquillité d'esprit totale.
+                    </p>
+                    <ul class="service-features">
+                        <li>Hébergement premium</li>
+                        <li>Expertise nom de domaine</li>
+                        <li>Maintenance préventive</li>
+                        <li>Sécurité renforcée</li>
+                        <li>Sauvegardes automatiques</li>
+                        <li>Support technique 24/7</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <span class="service-icon">📱</span>
+                    <h3 class="service-title">Social Média</h3>
+                    <p class="service-desc">
+                        Amplifiez votre présence sur les réseaux sociaux avec des contenus engageants et une stratégie ciblée.
+                    </p>
+                    <ul class="service-features">
+                        <li>Stratégie social média</li>
+                        <li>Création social content</li>
+                        <li>Community management</li>
+                        <li>Gestion e-réputation</li>
+                        <li>Campagnes d'influence</li>
+                        <li>Analytics & reporting</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <span class="service-icon">📊</span>
+                    <h3 class="service-title">Marketing Digital</h3>
+                    <p class="service-desc">
+                        Générez des leads qualifiés et boostez vos conversions grâce à nos stratégies marketing éprouvées.
+                    </p>
+                    <ul class="service-features">
+                        <li>Stratégie inbound marketing</li>
+                        <li>Content marketing premium</li>
+                        <li>Référencement SEO avancé</li>
+                        <li>Campagnes sponsorisées</li>
+                        <li>Email marketing automation</li>
+                        <li>Conversion rate optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Artificio Section -->
+    <section id="why-artificio" class="section why-section" style="background: var(--section-alt-bg);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pourquoi Choisir Artificio ?</h2>
+                <p class="section-subtitle">
+                    Des résultats concrets qui témoignent de notre expertise et de la confiance que nous accordent nos clients.
+                </p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number" data-count="200">0</div>
+                    <div class="stat-label">Clients accompagnés</div>
+                    <div class="stat-desc">Startups, PME et grands comptes nous font confiance</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label">Années d'expertise</div>
+                    <div class="stat-desc">Une expérience solide au service de vos projets</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-number" data-count="98">0</div>
+                    <div class="stat-label">% Satisfaction client</div>
+                    <div class="stat-desc">Un taux de satisfaction qui parle de lui-même</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="processus" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Notre Processus de Travail</h2>
+                <p class="section-subtitle">
+                    Une méthodologie éprouvée en 4 étapes pour transformer vos idées en succès digitaux.
+                </p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Découverte & Analyse</h3>
+                    <p class="step-desc">
+                        Nous analysons votre marché, vos objectifs et votre audience pour définir la stratégie optimale.
+                    </p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Stratégie & Conception</h3>
+                    <p class="step-desc">
+                        Élaboration de la stratégie créative, des wireframes et du design system adapté à votre identité.
+                    </p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Développement & Création</h3>
+                    <p class="step-desc">
+                        Production des contenus, développement technique et intégration de toutes les fonctionnalités.
+                    </p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Lancement & Optimisation</h3>
+                    <p class="step-desc">
+                        Mise en ligne, formation, suivi des performances et optimisations continues.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">À Propos d'Artificio</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>
+                        J'ai lancé <span class="about-highlight">Artificio</span> parce que je voyais un vrai manque dans le marketing digital : 
+                        beaucoup d'agences produisent du contenu, mais sans vision, sans âme, sans stratégie long terme.
+                    </p>
+                    <p>
+                        Je voulais créer une structure qui mette <span class="about-highlight">le storytelling, l'identité de marque et l'impact créatif</span> 
+                        au centre, pas juste la production en volume.
+                    </p>
+                    <p>
+                        Fort de mon parcours en tech et en gestion de projet digital, j'ai construit Artificio comme une 
+                        <span class="about-highlight">agence agile et premium</span>, capable d'offrir à ses clients des contenus créatifs et mémorables, 
+                        une stratégie digitale sur mesure, et un accompagnement humain qui fait la différence.
+                    </p>
+                    <p>
+                        <strong>Notre mission :</strong> Aider les marques à se démarquer dans un univers digital saturé, 
+                        en leur apportant des contenus qui ont du sens et une stratégie qui dure.
+                    </p>
+                </div>
+                <div class="about-visual fade-in">
+                    💡
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Prêt à Transformer Votre Présence Digitale ?</h2>
+                <p class="section-subtitle">
+                    Discutons de votre projet et créons ensemble une expérience d'exception qui marquera vos utilisateurs.
+                </p>
+            </div>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-white">💬 Démarrer un projet</a>
+                <a href="#portfolio" class="btn btn-outline">📁 Voir nos réalisations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contactez-Nous</h2>
+                <p class="section-subtitle">
+                    Racontez-nous votre projet et découvrons ensemble comment le transformer en succès.
+                </p>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </div>
+                <div class="form-group">
+                    <label for="nom">Nom de famille</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="entreprise">Entreprise</label>
+                    <input type="text" id="entreprise" name="entreprise">
+                </div>
+                <div class="form-group">
+                    <label for="ville">Ville</label>
+                    <input type="text" id="ville" name="ville" placeholder="Ex: Paris, New York, Londres...">
+                </div>
+                <div class="form-group">
+                    <label for="pays">Pays</label>
+                    <select id="pays" name="pays">
+                        <option value="">Sélectionnez votre pays</option>
+                        <option value="FR">France</option>
+                        <option value="BE">Belgique</option>
+                        <option value="CH">Suisse</option>
+                        <option value="CA">Canada</option>
+                        <option value="US">États-Unis</option>
+                        <option value="GB">Royaume-Uni</option>
+                        <option value="DE">Allemagne</option>
+                        <option value="ES">Espagne</option>
+                        <option value="IT">Italie</option>
+                        <option value="NL">Pays-Bas</option>
+                        <option value="AU">Australie</option>
+                        <option value="JP">Japon</option>
+                        <option value="BR">Brésil</option>
+                        <option value="MX">Mexique</option>
+                        <option value="IN">Inde</option>
+                        <option value="SG">Singapour</option>
+                        <option value="AE">Émirats Arabes Unis</option>
+                        <option value="MA">Maroc</option>
+                        <option value="TN">Tunisie</option>
+                        <option value="SN">Sénégal</option>
+                        <option value="CI">Côte d'Ivoire</option>
+                        <option value="OTHER">Autre</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="service">Service souhaité</label>
+                    <select id="service" name="service">
+                        <option value="">Sélectionnez un service</option>
+                        <option value="conseil">Conseil & Stratégie Digitale</option>
+                        <option value="design">Studio Graphique UI/UX</option>
+                        <option value="dev">Développement Web</option>
+                        <option value="maintenance">Maintenance & Sécurité</option>
+                        <option value="social">Social Média</option>
+                        <option value="marketing">Marketing Digital</option>
+                        <option value="multiple">Plusieurs services</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="projet">Décrivez votre projet</label>
+                    <textarea id="projet" name="projet" rows="5" placeholder="Parlez-nous de votre vision, vos objectifs, vos besoins, votre budget approximatif..." required></textarea>
+                </div>
+                <div class="form-group full-width">
+                    <button type="submit" class="submit-btn">Envoyer la Demande</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">Artificio</div>
+                <p class="footer-desc">
+                    L'art de transformer l'ordinaire en expériences d'exception. 
+                    Agence digitale complète spécialisée en brand content et stratégies innovantes.
+                </p>
+            </div>
+            <div>
+                <h4 class="footer-title">Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Conseil & Stratégie</a></li>
+                    <li><a href="#">Studio Graphique</a></li>
+                    <li><a href="#">Développement Web</a></li>
+                    <li><a href="#">Marketing Digital</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Entreprise</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">À Propos</a></li>
+                    <li><a href="#processus">Processus</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:contact@artificio.com">contact@artificio.com</a></li>
+                    <li><a href="tel:+33123456789">+33 1 23 45 67 89</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Artificio. Tous droits réservés. | <a href="#">Mentions Légales</a> | <a href="#">Politique de Confidentialité</a></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- Immediate Theme Toggle Script -->
+    <script>
+        // Define toggleTheme immediately
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const themeIcon = document.querySelector('.theme-toggle .icon');
+            
+            console.log('Toggling theme from', currentTheme, 'to', newTheme);
+            
+            // Apply new theme
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('artificio-theme', newTheme);
+            
+            // Update icon
+            if (themeIcon) {
+                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            }
+            
+            console.log('Theme changed to:', newTheme);
+        }
+        
+        // Attach event listener when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeButton = document.getElementById('themeToggle');
+            if (themeButton) {
+                themeButton.addEventListener('click', toggleTheme);
+                console.log('Theme button listener attached');
+            }
+        });
+    </script>
+</body>
+</html>
