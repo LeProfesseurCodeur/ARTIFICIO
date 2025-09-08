@@ -370,11 +370,41 @@
                 </p>
             </div>
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-white">💬 Démarrer un projet</a>
+                <a href="#contact" id="open-brief" class="btn btn-white cta-boost">💬 Démarrer un projet</a>
                 <a href="#portfolio" class="btn btn-outline">📁 Voir nos réalisations</a>
             </div>
         </div>
     </section>
+
+    <!-- AI Brief Wizard Modal -->
+<div id="aiWizardModal" class="aiw-modal" role="dialog" aria-modal="true" aria-labelledby="aiwTitle" hidden>
+  <div class="aiw-backdrop" data-aiw-close></div>
+  <div class="aiw-dialog" role="document">
+    <div class="aiw-header">
+      <div class="aiw-brand">
+        <span class="aiw-logo">🤖</span>
+        <h3 id="aiwTitle">Assistant Brief – Artificio</h3>
+      </div>
+      <button class="aiw-close" aria-label="Fermer" data-aiw-close>✕</button>
+    </div>
+    <div class="aiw-body">
+      <div class="aiw-messages" id="aiwMsgs" aria-live="polite"></div>
+      <form id="aiwForm" class="aiw-inputarea" autocomplete="on">
+        <div class="aiw-progress"><div class="aiw-bar" id="aiwBar" style="width:0%"></div></div>
+        <div id="aiwControls"></div>
+        <div class="aiw-actions">
+            <button type="button" class="btn btn-outline aiw-prev" id="aiwPrev" disabled>◀ Précédent</button>
+            <button type="submit" class="btn btn-primary aiw-next" id="aiwNext">Suivant ▶</button>
+        </div>
+      </form>
+    </div>
+    <!-- <div class="aiw-footer">
+      <small>Vos réponses restent locales (non envoyées). Vous pourrez copier ou télécharger le brief final.</small>
+    </div> -->
+  </div>
+</div>
+
+
 
     <!-- Contact Section -->
     <section id="contact" class="section">
