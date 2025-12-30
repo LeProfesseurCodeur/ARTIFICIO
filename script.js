@@ -100,118 +100,18 @@ function toggleMobileMenu() {
 }
 
 // ===== NAVBAR SCROLL EFFECTS =====
+/**
+ * Initializes navbar scroll effects by toggling the 'scrolled' class.
+ * All visual styling is handled via CSS - this function only manages state.
+ */
 function initNavbarEffects() {
     const navbar = $('#navbar');
-    const logo = navbar.querySelector('.logo');
-    const navLinks = navbar.querySelectorAll('.nav-link:not(.cta)');
-    const ctaButton = navbar.querySelector('.nav-link.cta');
+    const SCROLL_THRESHOLD = 300;
 
-    // FORCE BRUTALE EN JAVASCRIPT - État transparent
-    function setTransparentMode() {
-        navbar.style.background = 'transparent';
-        navbar.style.backdropFilter = 'none';
-        navbar.style.borderBottom = 'none';
-        navbar.style.boxShadow = 'none';
-
-        // Textes en blanc pour fond coloré (même en mode sombre)
-        logo.style.color = 'white';
-        logo.style.textShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
-        logo.style.background = 'none';
-        logo.style.webkitTextFillColor = 'white';
-
-        navLinks.forEach(link => {
-            link.style.color = 'rgba(255, 255, 255, 0.9)';
-            link.style.textShadow = '0 1px 5px rgba(0, 0, 0, 0.2)';
-        });
-
-        // CTA en mode glassmorphism blanc
-        ctaButton.style.background = 'rgba(255, 255, 255, 0.15)';
-        ctaButton.style.color = 'white';
-        ctaButton.style.border = '1px solid rgba(255, 255, 255, 0.2)';
-        ctaButton.style.backdropFilter = 'blur(10px)';
-        ctaButton.style.transition = 'all 0.3s ease';
-
-        // Animation hover pour mode transparent
-        ctaButton.onmouseenter = () => {
-            ctaButton.style.background = 'linear-gradient(90deg, #3700AD 0%, #E66C9C 100%)';
-            ctaButton.style.border = 'none';
-            ctaButton.style.transform = 'translateY(-2px)';
-            ctaButton.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.3)';
-        };
-
-        ctaButton.onmouseleave = () => {
-            ctaButton.style.background = 'rgba(255, 255, 255, 0.15)';
-            ctaButton.style.border = '1px solid rgba(255, 255, 255, 0.2)';
-            ctaButton.style.transform = 'translateY(0)';
-            ctaButton.style.boxShadow = 'none';
-        };
-    }
-
-    // État blanc - adapté au thème
-    function setWhiteMode() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-
-        if (currentTheme === 'dark') {
-            navbar.style.background = 'rgba(15, 15, 15, 0.98)';
-            navbar.style.borderBottom = '1px solid rgba(55, 0, 173, 0.3)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.borderBottom = '1px solid rgba(55, 0, 173, 0.1)';
-        }
-
-        navbar.style.backdropFilter = 'blur(20px)';
-        navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
-
-        // Textes adaptés au thème
-        logo.style.color = 'transparent';
-        logo.style.textShadow = 'none';
-        logo.style.background = 'linear-gradient(90deg, #3700AD 0%, #E66C9C 100%)';
-        logo.style.webkitBackgroundClip = 'text';
-        logo.style.webkitTextFillColor = 'transparent';
-
-        const textColor = currentTheme === 'dark' ? '#ffffff' : '#1a1a1a';
-        navLinks.forEach(link => {
-            link.style.color = textColor;
-            link.style.textShadow = 'none';
-        });
-
-        // CTA en mode coloré
-        ctaButton.style.background = 'linear-gradient(90deg, #3700AD 0%, #E66C9C 100%)';
-        ctaButton.style.color = 'white';
-        ctaButton.style.border = 'none';
-        ctaButton.style.backdropFilter = 'none';
-        ctaButton.style.transition = 'all 0.3s ease';
-
-        // Animation hover pour mode blanc
-        ctaButton.onmouseenter = () => {
-            ctaButton.style.background = 'linear-gradient(90deg, #E66C9C 0%, #3700AD 100%)';
-            ctaButton.style.transform = 'translateY(-2px)';
-            ctaButton.style.boxShadow = '0 8px 25px rgba(55, 0, 173, 0.4)';
-        };
-
-        ctaButton.onmouseleave = () => {
-            ctaButton.style.background = 'linear-gradient(90deg, #3700AD 0%, #E66C9C 100%)';
-            ctaButton.style.transform = 'translateY(0)';
-            ctaButton.style.boxShadow = 'none';
-        };
-    }
-
-    // État initial
-    setTransparentMode();
-    console.log('🔧 Navbar forcée en transparent avec textes blancs');
-
+    // Handle scroll events to toggle navbar state
     window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-
-        if (currentScrollY > 300) {
-            setWhiteMode();
-            navbar.classList.add('scrolled');
-            console.log('🔄 Navbar en mode BLANC avec adaptation thème');
-        } else {
-            setTransparentMode();
-            navbar.classList.remove('scrolled');
-            console.log('🔄 Navbar en mode TRANSPARENT avec textes blancs');
-        }
+        const isScrolled = window.scrollY > SCROLL_THRESHOLD;
+        navbar.classList.toggle('scrolled', isScrolled);
     });
 }
 
