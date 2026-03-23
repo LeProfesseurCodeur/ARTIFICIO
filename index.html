@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,96 +13,29 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="css/hero.css"> -->
+    <link rel="stylesheet" href="css/offre-services.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/hero-clean.css">
 
      <!-- Ajoutez dans le <head> -->
     <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
 </head>
 <body>
     <div class="scroll-indicator"></div>
+
+    <button id="backToTop" aria-label="Retour en haut">
+        ⬆
+    </button>
     
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
         <span class="icon">🌙</span>
     </button>
     
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Artificio</a>
-            
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#accueil" class="nav-link">Accueil</a>
-                </li>
-                <li class="nav-item mega-bridge">
-                    <a href="#services" class="nav-link">Services</a>
-                    <div class="mega-menu">
-                        <div class="mega-menu-grid">
-                            <a href="#" class="mega-menu-item">
-                                <span class="mega-menu-icon">💡</span>
-                                <div class="mega-menu-title">Conseil & Stratégie</div>
-                                <div class="mega-menu-desc">Stratégie digitale, cahiers des charges, numérique responsable</div>
-                            </a>
-                            <a href="#" class="mega-menu-item">
-                                <span class="mega-menu-icon">🎨</span>
-                                <div class="mega-menu-title">Studio Graphique</div>
-                                <div class="mega-menu-desc">UI/UX Design, identité visuelle, création de logo</div>
-                            </a>
-                            <a href="#" class="mega-menu-item">
-                                <span class="mega-menu-icon">💻</span>
-                                <div class="mega-menu-title">Développement Web</div>
-                                <div class="mega-menu-desc">Sites sur mesure, e-commerce, applications</div>
-                            </a>
-                            <a href="#" class="mega-menu-item">
-                                <span class="mega-menu-icon">🔒</span>
-                                <div class="mega-menu-title">Maintenance & Sécurité</div>
-                                <div class="mega-menu-desc">Hébergement, sécurité, expertise domaine</div>
-                            </a>
-                            <a href="#" class="mega-menu-item">
-                                <span class="mega-menu-icon">📱</span>
-                                <div class="mega-menu-title">Social Média</div>
-                                <div class="mega-menu-desc">Stratégie, content, community management</div>
-                            </a>
-                            <a href="#" class="mega-menu-item">
-                                <span class="mega-menu-icon">📊</span>
-                                <div class="mega-menu-title">Marketing Digital</div>
-                                <div class="mega-menu-desc">SEO, campagnes sponsorisées, inbound marketing</div>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a href="#processus" class="nav-link">Processus</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">À Propos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
+    <!-- NAVBAR -->
+    <div id="site-navbar"></div>
 
-            <div class="nav-cta-wrapper">
-                <a href="#contact" class="nav-link cta">Démarrer un projet</a>
-            </div>
-
-            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-
-        <div class="mobile-menu" id="mobileMenu">
-            <ul class="mobile-menu-list">
-                <li class="mobile-menu-item"><a href="#accueil" class="mobile-menu-link">Accueil</a></li>
-                <li class="mobile-menu-item"><a href="#services" class="mobile-menu-link">Services</a></li>
-                <li class="mobile-menu-item"><a href="#processus" class="mobile-menu-link">Processus</a></li>
-                <li class="mobile-menu-item"><a href="#about" class="mobile-menu-link">À Propos</a></li>
-                <li class="mobile-menu-item"><a href="#contact" class="mobile-menu-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
     <!-- Hero Section -->
     <section id="accueil" class="hero">
@@ -126,20 +59,130 @@
             <div class="particle"></div>
             <div class="particle"></div>
         </div>
+
         <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Artificio, l'art de transformer l'ordinaire en expériences d'exception</h1>
+            <!-- CONTENT -->
+            <div class="hero-content fade-in">
+                <span class="hero-badge">Agence digitale premium</span>
+
+                <h1 class="hero-title">
+                    Transformez votre présence digitale en
+                    <span class="hero-gradient">expérience mémorable</span>
+                </h1>
+
                 <p class="hero-subtitle">
-                    Agence digitale complète, nous créons des expériences qui marquent : brand content impactant, 
-                    stratégie digitale sur-mesure, développement web premium et solutions marketing innovantes.
+                    Nous concevons des sites web, des identités digitales et des stratégies
+                    capables de capter l’attention, convaincre et générer des résultats concrets.
                 </p>
+
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">🚀 Démarrer mon projet</a>
-                    <a href="#services" class="btn btn-secondary">📁 Découvrir nos services</a>
+                    <a href="#contact" class="btn btn-primary">🚀 Lancer mon projet</a>
+                    <a href="#services" class="btn btn-secondary">💡 Voir nos solutions</a>
+                </div>
+
+                <!-- TRUST -->
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <strong>+50</strong>
+                        <span>projets</span>
+                    </div>
+                    <div class="trust-item">
+                        <strong>100%</strong>
+                        <span>sur-mesure</span>
+                    </div>
+                    <div class="trust-item">
+                        <strong>UX</strong>
+                        <span>centrée client</span>
+                    </div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-shape" onclick="triggerShapeAnimation()">✨</div>
+            
+            <div class="hero-visual fade-in hero-visual-ui hero-visual-ui-v4 story-visual">
+                <div class="hero-ui-card hero-ui-card-v4 story-card" id="heroInteractiveCard">
+                    <div class="hero-ui-shell">
+                        <div class="hero-ui-topbar hero-ui-topbar-v4">
+                            <div class="hero-ui-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div class="hero-ui-navline"></div>
+                        </div>
+
+                        <div class="hero-ui-content hero-ui-content-v4">
+                            <div class="hero-ui-left hero-ui-left-v4">
+                                <span class="hero-ui-kicker">Artificio</span>
+                                <h3>Interface premium</h3>
+                                <p>Clarté • Impact • Résultats</p>
+                                <button type="button" class="hero-ui-btn">Découvrir</button>
+                            </div>
+
+                            <div class="hero-ui-right hero-ui-right-v4">
+                                <span class="hero-ui-pill hero-ui-pill--one"></span>
+                                <span class="hero-ui-pill hero-ui-pill--two"></span>
+                                <span class="hero-ui-panel"></span>
+                                <span class="hero-ui-pill hero-ui-pill--three"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-ui-ambient hero-ui-ambient--one"></div>
+                <div class="hero-ui-ambient hero-ui-ambient--two"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator-fleche" type="button" aria-label="Aller à la section suivante" aria-hidden="true" data-scroll-target="#why">
+            <span class="scroll-arrow" aria-hidden="true"></span>
+        </div>
+    </section>
+
+    <section id="why" class="why-section">
+        <div class="container">
+            <div class="why-header reveal">
+                <h2 class="why-title">
+                    Un site internet,<span class="why-highlight"> pourquoi faire ?</span>
+                </h2>
+                <p class="why-subtitle">
+                    Des bénéfices concrets pour transformer votre présence digitale en résultats mesurables.
+                </p>
+            </div>
+            <div class="why-layout">
+                <!-- Colonne gauche -->
+                <div class="why-col">
+                    <article class="why-card reveal" style="--d:0ms">
+                        <div class="why-icon">📈</div>
+                        <h3>Augmentez votre visibilité</h3>
+                        <p>Améliorez votre présence en ligne et attirez plus de prospects qualifiés.</p>
+                        <span class="why-index">01</span>
+                    </article>
+
+                    <article class="why-card reveal" style="--d:120ms">
+                        <div class="why-icon">🗓️</div>
+                        <h3>Soyez consultable 24h/24</h3>
+                        <p>Votre activité reste accessible 7j/7 : infos, offres, prise de contact.</p>
+                        <span class="why-index">02</span>
+                    </article>
+                </div>
+                <!-- Visuel central -->
+                <div class="why-visual reveal" style="--d:180ms" aria-hidden="true">
+                    <div class="why-orb"></div>
+                    <img src="images/Finance leaders-pana.png" alt="Illustration" />
+                </div>
+                <!-- Colonne droite -->
+                <div class="why-col">
+                    <article class="why-card reveal" style="--d:240ms">
+                        <div class="why-icon">💬</div>
+                        <h3>Offrez un support à vos clients</h3>
+                        <p>Un espace clair pour informer, guider et répondre avant même le premier appel.</p>
+                        <span class="why-index">03</span>
+                    </article>
+                    <article class="why-card reveal" style="--d:360ms">
+                        <div class="why-icon">🤝</div>
+                        <h3>Renforcez la confiance</h3>
+                        <p>Crédibilité, preuve sociale, réalisations : tout est pensé pour rassurer.</p>
+                        <span class="why-index">04</span>
+                    </article>
+                </div>
             </div>
         </div>
     </section>
@@ -148,13 +191,18 @@
     <section id="services" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Nos Expertises</h2>
-                <p class="section-subtitle">
+                <h2 class="why-title">Nos Expertises <span class="why-highlight">Digitales</span></h2>
+                <p class="why-subtitle">
                     Une gamme complète de services pour propulser votre présence digitale et créer des expériences mémorables.
                 </p>
             </div>
             <div class="services-grid">
-                <div class="service-card fade-in">
+                <div class="service-card fade-in" 
+                     data-href="pages/conseil&strat/identite.html"
+                     tabindex="0"
+                     role="link"
+                     aria-label="Aller vers Conseil & Stratégie Digitale"
+                >
                     <span class="service-icon">💡</span>
                     <h3 class="service-title">Conseil & Stratégie Digitale</h3>
                     <p class="service-desc">
@@ -169,8 +217,12 @@
                         <li>Identité de marque</li>
                     </ul>
                 </div>
-                
-                <div class="service-card fade-in">
+                <div class="service-card fade-in"
+                    data-href="pages/conseil&strat/graphique.html"
+                    tabindex="0"
+                    role="link"
+                    aria-label="Aller vers Studio Graphique UI/UX"
+                >
                     <span class="service-icon">🎨</span>
                     <h3 class="service-title">Studio Graphique UI/UX</h3>
                     <p class="service-desc">
@@ -185,8 +237,12 @@
                         <li>Landing pages optimisées</li>
                     </ul>
                 </div>
-
-                <div class="service-card fade-in">
+                <div class="service-card fade-in"
+                    data-href="pages/conseil&strat/developpement.html"
+                    tabindex="0"
+                    role="link"
+                    aria-label="Aller vers développement web"
+                >
                     <span class="service-icon">💻</span>
                     <h3 class="service-title">Développement Web</h3>
                     <p class="service-desc">
@@ -201,8 +257,12 @@
                         <li>Accessibilité numérique</li>
                     </ul>
                 </div>
-
-                <div class="service-card fade-in">
+                <div class="service-card fade-in"
+                    data-href="pages/conseil&strat/maintenance.html"
+                    tabindex="0"
+                    role="link"
+                    aria-label="Aller vers maintenance & sécurité"
+                >
                     <span class="service-icon">🔒</span>
                     <h3 class="service-title">Maintenance & Sécurité</h3>
                     <p class="service-desc">
@@ -217,8 +277,12 @@
                         <li>Support technique 24/7</li>
                     </ul>
                 </div>
-
-                <div class="service-card fade-in">
+                <div class="service-card fade-in"
+                    data-href="pages/conseil&strat/social.html"
+                    tabindex="0"
+                    role="link"
+                    aria-label="Aller vers social média"
+                >
                     <span class="service-icon">📱</span>
                     <h3 class="service-title">Social Média</h3>
                     <p class="service-desc">
@@ -234,7 +298,12 @@
                     </ul>
                 </div>
 
-                <div class="service-card fade-in">
+                <div class="service-card fade-in"
+                    data-href="pages/conseil&strat/marketing.html"
+                    tabindex="0"
+                    role="link"
+                    aria-label="Aller vers marketing digital"
+                >
                     <span class="service-icon">📊</span>
                     <h3 class="service-title">Marketing Digital</h3>
                     <p class="service-desc">
@@ -252,46 +321,291 @@
             </div>
         </div>
     </section>
-
     <!-- Why Artificio Section -->
-    <section id="why-artificio" class="section why-section" style="background: var(--section-alt-bg);">
+    <section id="why-artificio" class="section why-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Pourquoi Choisir Artificio ?</h2>
-                <p class="section-subtitle">
+            <div class="section-header" style="margin-bottom: 0;">
+                <h2 class="why-title">Pourquoi <span class="why-highlight">Choisir Artificio ?</span></h2>
+                <!-- <p class="section-subtitle">
                     Des résultats concrets qui témoignent de notre expertise et de la confiance que nous accordent nos clients.
+                </p> -->
+                <div class="about-text fade-in">
+                    <p style="text-align: justify;">
+                        Aujourd’hui, disposer d’un site internet performant est essentiel pour toute entreprise souhaitant développer sa visibilité et asseoir sa crédibilité en ligne. Chez Artificio, nous concevons des sites web sur mesure, pensés pour répondre précisément à vos objectifs et aux attentes de vos utilisateurs. De la définition du projet à la mise en ligne, nous vous accompagnons dans la création d’une plateforme fiable, sécurisée et évolutive. Qu’il s’agisse d’un site vitrine, d’une landing page, d’un blog ou d’une boutique e-commerce, chaque projet est conçu pour offrir une expérience fluide, valoriser votre marque et soutenir durablement votre croissance digitale.
+                    </p>
+                </div>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-card-inner">
+                        <div class="feature-face feature-front">
+                            <div class="feature-icon">🖥️</div>
+                            <h3 class="feature-name">Site web évolutif</h3>
+                        </div>
+                        <div class="feature-face feature-back">
+                            <p class="feature-desc">Un site pensé pour évoluer avec votre activité, vos contenus et vos ambitions.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-card-inner">
+                        <div class="feature-face feature-front">
+                            <div class="feature-icon">🧩</div>
+                            <h3 class="feature-name">Design sur-mesure</h3>
+                        </div>
+                        <div class="feature-face feature-back">
+                            <p class="feature-desc">Une interface pensée selon votre identité, vos objectifs et l’expérience utilisateur attendue.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-card-inner">
+                        <div class="feature-face feature-front">
+                            <div class="feature-icon">📈</div>
+                            <h3 class="feature-name">SEO optimisé</h3>
+                        </div>
+                        <div class="feature-face feature-back">
+                            <p class="feature-desc">Des bases solides pour améliorer votre visibilité et votre positionnement sur les moteurs de recherche.</p>
+                        </div> 
+                    </div>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-card-inner">
+                        <div class="feature-face feature-front">
+                            <div class="feature-icon">✍️</div>
+                            <h3 class="feature-name">Copywriting</h3>
+                        </div>
+                        <div class="feature-face feature-back">
+                            <p class="feature-desc">Des textes pensés pour captiver, convaincre et valoriser votre proposition de valeur.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-card-inner">
+                        <div class="feature-face feature-front">
+                            <div class="feature-icon">📊</div>
+                            <h3 class="feature-name">Analyse d’audience</h3>
+                        </div>
+                        <div class="feature-face feature-back">
+                            <p class="feature-desc">Une meilleure compréhension de vos visiteurs pour ajuster votre discours et vos performances.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-card-inner">
+                        <div class="feature-face feature-front">
+                            <div class="feature-icon">🎓</div>
+                            <h3 class="feature-name">Formation</h3>
+                        </div>
+                        <div class="feature-face feature-back">
+                            <p class="feature-desc">Une prise en main claire pour vous permettre de gérer votre site en toute autonomie.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-card-inner">
+                        <div class="feature-face feature-front">
+                            <div class="feature-icon">✉️</div>
+                            <h3 class="feature-name">Email marketing</h3>
+                        </div>
+                        <div class="feature-face feature-back">
+                            <p class="feature-desc">Des campagnes pensées pour fidéliser, engager votre audience et renforcer votre image.</p>
+                        </div>
+                    </div>
+                </article> 
+            </div>
+            <div class="about-text fade-in" style="margin-top: 3%;">
+                <p style="text-align: justify;">
+                    Chez Artificio, la satisfaction de nos clients est au cœur de tout ce que nous faisons.
+                    Nous vous accompagnons avec écoute et exigence pour concevoir un projet digital qui vous ressemble réellement.
+                    
+                    Chaque collaboration est unique : nos solutions sont pensées sur-mesure, adaptées à vos besoins, vos objectifs et votre identité.
+                    
+                    Avec Artificio, aucun projet n’est standard — tout est conçu spécialement pour vous.
                 </p>
             </div>
-            <div class="stats-grid">
-                <div class="stat-card fade-in">
-                    <div class="stat-icon">👥</div>
-                    <div class="stat-number" data-count="200">0</div>
-                    <div class="stat-label">Clients accompagnés</div>
-                    <div class="stat-desc">Startups, PME et grands comptes nous font confiance</div>
-                </div>
-                <div class="stat-card fade-in">
-                    <div class="stat-icon">📅</div>
-                    <div class="stat-number" data-count="5">0</div>
-                    <div class="stat-label">Années d'expertise</div>
-                    <div class="stat-desc">Une expérience solide au service de vos projets</div>
-                </div>
-                <div class="stat-card fade-in">
-                    <div class="stat-icon">⭐</div>
-                    <div class="stat-number" data-count="98">0</div>
-                    <div class="stat-label">% Satisfaction client</div>
-                    <div class="stat-desc">Un taux de satisfaction qui parle de lui-même</div>
-                </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services-showcase-section">
+        <div class="container">
+            <div class="section-header">
+                <!-- <span class="section-eyebrow">Offres signatures</span> -->
+                <h2 class="why-title">Des solutions web pensées pour <span class="why-highlight">convertir</span></h2>
+                <p class="why-subtitle">
+                    Des offres claires, premium et stratégiques pour présenter votre activité, vendre en ligne
+                    et garder un site performant dans le temps.
+                </p>
+            </div>
+
+            <div class="service-showcase-stack">
+                <!-- SITE VITRINE -->
+                <article class="service-showcase fade-in">
+                    <div class="service-showcase__content">
+                        <span class="service-showcase__badge">Site vitrine</span>
+                        <h3>Création de votre <br>site vitrine</h3>
+                        <p>
+                            Un site élégant, rapide et stratégique pour présenter votre entreprise, vos services,
+                            vos réalisations et rassurer vos prospects dès les premières secondes.
+                        </p>
+                        <ul class="service-showcase__meta">
+                            <li><strong>À partir de :</strong> 800€</li>
+                            <li><strong>Paiement :</strong> en 2 fois</li>
+                            <li><strong>Idéal pour :</strong> indépendants, artisans, PME</li>
+                        </ul>
+                        <div class="service-showcase__actions">
+                            <a href="pages/conseil&strat/developpement.html" class="btn btn-primary">En savoir plus</a>
+                            <a href="#contact" class="btn btn-secondary">Parler du projet</a>
+                        </div>
+                    </div>
+                    <div class="service-showcase__visual">
+                        <div class="offer-visual offer-visual--vitrine">
+                            <div class="offer-window">
+                                <div class="offer-window__topbar">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="offer-window__layout">
+                                    <div class="offer-copy">
+                                        <span class="offer-kicker">Artificio</span>
+                                        <h4>Site vitrine <br>sur-mesure</h4>
+                                        <p>Une présence digitale premium qui inspire confiance.</p>
+                                        <button type="button">Découvrir</button>
+                                    </div>
+                                    <div class="offer-screen offer-screen--cards">
+                                        <span class="screen-card screen-card--tall"></span>
+                                        <span class="screen-card"></span>
+                                        <span class="screen-card"></span>
+                                        <span class="screen-card screen-card--wide"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="orb orb--pink"></span>
+                            <span class="orb orb--purple"></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- E-COMMERCE -->
+                <article class="service-showcase service-showcase--reverse fade-in">
+                    <div class="service-showcase__content">
+                        <span class="service-showcase__badge">E-commerce</span>
+                        <h3>Création de votre <br>site e-commerce</h3>
+
+                        <p>
+                            Une boutique en ligne conçue pour vendre : structure claire, parcours utilisateur fluide,
+                            fiches produits optimisées et base solide pour faire évoluer votre activité.
+                        </p>
+
+                        <ul class="service-showcase__meta">
+                            <li><strong>À partir de :</strong> 1800€</li>
+                            <li><strong>Paiement :</strong> en 4 fois</li>
+                            <li><strong>Idéal pour :</strong> marques, boutiques, lancements produits</li>
+                        </ul>
+
+                        <div class="service-showcase__actions">
+                            <a href="pages/conseil&strat/developpement.html" class="btn btn-primary">En savoir plus</a>
+                            <a href="#contact" class="btn btn-secondary">Obtenir un devis</a>
+                        </div>
+                    </div>
+
+                    <div class="service-showcase__visual">
+                        <div class="offer-visual offer-visual--shop">
+                            <div class="offer-window offer-window--shop">
+                                <div class="offer-window__topbar">
+                                    <span></span><span></span><span></span>
+                                </div>
+
+                                <div class="offer-window__layout">
+                                    <div class="offer-copy">
+                                        <span class="offer-kicker">Boutique</span>
+                                        <h4>Expérience <br>e-commerce</h4>
+                                        <p>Un design qui valorise vos produits et simplifie l’achat.</p>
+                                        <button type="button">Shop now</button>
+                                    </div>
+
+                                    <div class="offer-screen offer-screen--shop">
+                                        <span class="shop-roof"></span>
+                                        <span class="shop-body"></span>
+                                        <span class="shop-cart"></span>
+                                        <span class="shop-cta"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <span class="orb orb--soft"></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MAINTENANCE -->
+                <article class="service-showcase fade-in">
+                    <div class="service-showcase__content">
+                        <span class="service-showcase__badge">Maintenance</span>
+                        <h3>Maintenance de votre <br>site internet</h3>
+
+                        <p>
+                            Nous gardons votre site à jour, sécurisé et performant avec un accompagnement continu,
+                            des optimisations régulières et une vraie tranquillité d’esprit.
+                        </p>
+
+                        <ul class="service-showcase__meta">
+                            <li><strong>Offre :</strong> 50€ / mois</li>
+                            <li><strong>Inclus :</strong> mises à jour, sécurité, support</li>
+                            <li><strong>Objectif :</strong> stabilité, rapidité, sérénité</li>
+                        </ul>
+
+                        <div class="service-showcase__actions">
+                            <a href="pages/conseil&strat/maintenance.html" class="btn btn-primary">En savoir plus</a>
+                            <a href="#contact" class="btn btn-secondary">Être accompagné</a>
+                        </div>
+                    </div>
+
+                    <div class="service-showcase__visual">
+                        <div class="offer-visual offer-visual--maintenance">
+                            <div class="offer-window offer-window--maintenance">
+                                <div class="offer-window__topbar">
+                                    <span></span><span></span><span></span>
+                                </div>
+
+                                <div class="offer-window__layout">
+                                    <div class="offer-copy offer-copy--dark">
+                                        <span class="offer-kicker">Support</span>
+                                        <h4>Maintenance <br>en continu</h4>
+                                        <p>Protection, rapidité et suivi régulier de votre site.</p>
+                                        <button type="button">Contact</button>
+                                    </div>
+
+                                    <div class="offer-screen offer-screen--maintenance">
+                                        <span class="monitor"></span>
+                                        <span class="monitor-bar"></span>
+                                        <span class="monitor-bar monitor-bar--small"></span>
+                                        <span class="gear gear--one"></span>
+                                        <span class="gear gear--two"></span>
+                                        <span class="cone"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- Process Section -->
-    <section id="processus" class="section">
+    <section id="processus" class="section why-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Notre Processus de Travail</h2>
+                <h2 class="why-title">Notre <span class="why-highlight">Processus de Travail</span></h2>
                 <p class="section-subtitle">
-                    Une méthodologie éprouvée en 4 étapes pour transformer vos idées en succès digitaux.
+                    Une méthodologie éprouvée pour transformer vos idées en succès digitaux.
                 </p>
             </div>
             <div class="process-steps">
@@ -327,91 +641,287 @@
         </div>
     </section>
 
+    <style>
+        /* ===== HOME - FEATURES GRID (3 + 4) ===== */
+        .features-section{
+            padding: 80px 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(106,0,255,.06), transparent 45%),
+                radial-gradient(circle at 80% 30%, rgba(255,94,168,.06), transparent 45%),
+                linear-gradient(
+                    180deg,
+                    #f7f3ff 0%,
+                    #ffffff 70%
+                );
+        }
+
+        .features-header{
+            text-align: justify;
+            margin-bottom: 34px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .features-header p{
+            max-width: 1000px;
+            margin: 20px auto 0;
+            line-height: 1.7;
+        }
+
+        .features-title{
+            font-size: clamp(28px, 3.2vw, 44px);
+            line-height: 1.05;
+            margin: 0;
+            font-weight: 800;
+            color: var(--text, #111);
+        }
+
+        .features-highlight{
+            background: linear-gradient(90deg, rgba(106,0,255,1), rgba(255,94,168,1));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .features-subtitle{
+            margin: 12px auto 0;
+            max-width: 720px;
+            color: rgba(20,20,20,.70);
+            font-size: 16px;
+        }
+
+        /* Grid 12 colonnes -> 3 cartes (span 4) puis 4 cartes (span 3) */
+        .features-grid{
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 26px;
+            align-items: stretch;
+        }
+
+        .feature-card{
+            grid-column: span 4;
+            perspective: 1200px;
+            min-height: 220px;
+        }
+
+
+        /* row 2 -> 4 cartes */
+        .feature-card:nth-child(n+4){
+            grid-column: span 3;
+        }
+
+        /* Halo léger */
+        .feature-card::before{
+            content:"";
+            position:absolute;
+            inset:-35%;
+            /* background:
+                radial-gradient(circle at 20% 20%, rgba(106, 0, 255, .10), transparent 45%),
+                radial-gradient(circle at 80% 30%, rgba(255, 94, 168, .10), transparent 45%),
+                radial-gradient(circle at 50% 90%, rgba(106, 0, 255, .06), transparent 55%); */
+            filter: blur(40px);
+            opacity: .85;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .feature-card > *{ position: relative; z-index: 1; }
+
+        .feature-card:hover{
+            transform: translateY(-6px);
+            box-shadow: 0 0px 0px rgba(0,0,0,.14);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px){
+            .feature-card{ grid-column: span 6; }
+            .feature-card:nth-child(n+4){ grid-column: span 6; }
+        }
+
+        @media (max-width: 640px){
+            .features-section{ padding: 60px 0; }
+            .feature-card{ grid-column: span 12; }
+            .feature-card:nth-child(n+4){ grid-column: span 12; }
+        }
+
+        /* Dark mode (si tu utilises data-theme="dark") */
+        [data-theme="dark"] .features-title{ color: rgba(255,255,255,.92); }
+        [data-theme="dark"] .features-subtitle{ color: rgba(255,255,255,.70); }
+        [data-theme="dark"] .feature-name{ color: rgba(255,255,255,.92); }
+
+        /* Inner = élément qui tourne */
+        .feature-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 220px;
+            transform-style: preserve-3d;
+            transition: transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        /* Rotation au hover */
+        .feature-card:hover .feature-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Faces */
+        .feature-face {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 220px;
+            border-radius: 26px;
+            padding: 34px 28px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            background: #fff;
+            border: 1px solid transparent;
+            background-image:
+                linear-gradient(#fff, #fff),
+                linear-gradient(135deg, rgba(106, 0, 255, .55), rgba(255, 94, 168, .45));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: none;
+        }
+
+        /* Halo subtil */
+        .feature-face::before {
+            content:"";
+            position:absolute;
+            inset:-35%;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(106, 0, 255, .06), transparent 45%),
+                radial-gradient(circle at 80% 30%, rgba(255, 94, 168, .06), transparent 45%);
+            filter: blur(40px);
+            opacity: .8;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .feature-face > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Face avant */
+        .feature-front {
+            transform: rotateY(0deg);
+        } 
+
+        /* Face arrière */
+        .feature-back {
+            transform: rotateY(180deg);
+            padding-inline: 24px;
+        }
+
+        /* Icône */
+        .feature-icon {
+            width: 74px;
+            height: 74px;
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 16px;
+            font-size: 28px;
+            background: linear-gradient(135deg, rgba(106,0,255,.12), rgba(255,94,168,.10));
+            border: 1px solid rgba(106,0,255,.18);
+            box-shadow: 0 12px 25px rgba(106,0,255,.10);
+        }
+
+        .feature-name {
+            margin: 0;
+            font-weight: 800;
+            font-size: 18px;
+            color: #111;
+        }
+
+        /* Texte dos */
+        .feature-desc {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #444;
+            max-width: 260px;
+        }
+
+        /* Dark mode */
+        [data-theme="dark"] .feature-face {
+            background: rgba(20, 20, 24, .88);
+            background-image:
+                linear-gradient(rgba(20,20,24,.88), rgba(20,20,24,.88)),
+                linear-gradient(135deg, rgba(106, 0, 255, .55), rgba(255, 94, 168, .45));
+            box-shadow: 0 18px 45px rgba(0,0,0,.35);
+            border: 1px solid rgba(55, 0, 173, 0.4) !important;
+        }
+
+        [data-theme="dark"] .feature-name {
+            color: rgba(255,255,255,.92);
+        }
+
+        [data-theme="dark"] .feature-desc {
+            color: rgba(255,255,255,.75);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px){
+            .feature-card{ grid-column: span 6; }
+            .feature-card:nth-child(n+4){ grid-column: span 6; }
+        }
+
+        @media (max-width: 640px){
+            .feature-card{ grid-column: span 12; }
+            .feature-card:nth-child(n+4){ grid-column: span 12; }
+        }
+
+    </style>
+
     <!-- About Section -->
     <section id="about" class="section about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">À Propos d'Artificio</h2>
+                <h2 class="why-title">À Propos <span class="why-highlight">d'ARTIFICIO</span></h2>
             </div>
             <div class="about-content">
                 <div class="about-text fade-in">
                     <p>
-                        J'ai lancé <span class="about-highlight">Artificio</span> parce que je voyais un vrai manque dans le marketing digital : 
-                        beaucoup d'agences produisent du contenu, mais sans vision, sans âme, sans stratégie long terme.
+                        <span class="about-highlight">Artificio</span> est né d’un constat simple : dans l’univers du marketing digital, de nombreuses agences produisent du contenu, mais trop souvent sans véritable vision stratégique ni identité forte. Les marques se retrouvent alors avec des actions dispersées, peu cohérentes et rarement pensées pour durer.
                     </p>
                     <p>
-                        Je voulais créer une structure qui mette <span class="about-highlight">le storytelling, l'identité de marque et l'impact créatif</span> 
-                        au centre, pas juste la production en volume.
+                        C’est pour répondre à ce manque qu’<span class="about-highlight">Artificio</span> a été créé. L’ambition est claire : replacer le sens, le storytelling et l’identité de marque au cœur de chaque projet. Plutôt que de privilégier la production en volume, nous concevons des stratégies et des expériences digitales capables de créer un véritable impact.
                     </p>
                     <p>
-                        Fort de mon parcours en tech et en gestion de projet digital, j'ai construit Artificio comme une 
-                        <span class="about-highlight">agence agile et premium</span>, capable d'offrir à ses clients des contenus créatifs et mémorables, 
-                        une stratégie digitale sur mesure, et un accompagnement humain qui fait la différence.
+                        Grâce à une double culture technique et stratégique, issue d’un parcours en technologie et en gestion de projets digitaux, <span class="about-highlight">Artificio</span> accompagne ses clients avec une approche agile et exigeante. Chaque collaboration vise à construire des contenus créatifs, des plateformes performantes et des stratégies digitales réellement alignées avec les objectifs de la marque.
                     </p>
                     <p>
-                        <strong>Notre mission :</strong> Aider les marques à se démarquer dans un univers digital saturé, 
-                        en leur apportant des contenus qui ont du sens et une stratégie qui dure.
+                        <strong>Notre mission</strong> est simple : permettre aux entreprises de se démarquer durablement dans un environnement digital saturé, en développant des expériences et des contenus qui ont du sens, renforcent leur image et soutiennent leur croissance sur le long terme.
                     </p>
                 </div>
                 <div class="about-visual fade-in">
-                    💡
+                    <img src="images/About us page-pana.png" alt="À propos d'Artificio" class="about-image">
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- CTA Section -->
-    <section class="section cta-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Prêt à Transformer Votre Présence Digitale ?</h2>
-                <p class="section-subtitle">
-                    Discutons de votre projet et créons ensemble une expérience d'exception qui marquera vos utilisateurs.
-                </p>
-            </div>
-            <div class="cta-buttons">
-                <a href="#contact" id="open-brief" class="btn btn-white cta-boost">💬 Démarrer un projet</a>
-                <a href="#portfolio" class="btn btn-outline">📁 Voir nos réalisations</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Brief Wizard Modal -->
-<div id="aiWizardModal" class="aiw-modal" role="dialog" aria-modal="true" aria-labelledby="aiwTitle" hidden>
-  <div class="aiw-backdrop" data-aiw-close></div>
-  <div class="aiw-dialog" role="document">
-    <div class="aiw-header">
-      <div class="aiw-brand">
-        <span class="aiw-logo">🤖</span>
-        <h3 id="aiwTitle">Assistant Brief – Artificio</h3>
-      </div>
-      <button class="aiw-close" aria-label="Fermer" data-aiw-close>✕</button>
-    </div>
-    <div class="aiw-body">
-      <div class="aiw-messages" id="aiwMsgs" aria-live="polite"></div>
-      <form id="aiwForm" class="aiw-inputarea" autocomplete="on">
-        <div class="aiw-progress"><div class="aiw-bar" id="aiwBar" style="width:0%"></div></div>
-        <div id="aiwControls"></div>
-        <div class="aiw-actions">
-            <button type="button" class="btn btn-outline aiw-prev" id="aiwPrev" disabled>◀ Précédent</button>
-            <button type="submit" class="btn btn-primary aiw-next" id="aiwNext">Suivant ▶</button>
-        </div>
-      </form>
-    </div>
-    <!-- <div class="aiw-footer">
-      <small>Vos réponses restent locales (non envoyées). Vous pourrez copier ou télécharger le brief final.</small>
-    </div> -->
-  </div>
-</div>
-
-
-
+    
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="section why-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Contactez-Nous</h2>
-                <p class="section-subtitle">
+                <h2 class="why-title">Contactez-<span class="why-highlight">Nous</span></h2>
+                <p class="why-subtitle">
                     Racontez-nous votre projet et découvrons ensemble comment le transformer en succès.
                 </p>
             </div>
@@ -488,82 +998,52 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div>
-                <div class="footer-logo">Artificio</div>
-                <p class="footer-desc">
-                    L'art de transformer l'ordinaire en expériences d'exception. 
-                    Agence digitale complète spécialisée en brand content et stratégies innovantes.
+    <!-- ULTRA LOADER ARTIFICIO -->
+    <div id="artificioLoader" class="artificio-loader" aria-hidden="true">
+        <div class="artificio-loader__bg"></div>
+        <div class="artificio-loader__noise"></div>
+
+        <div class="artificio-loader__inner">
+            <div class="artificio-loader__brand">
+                <div class="artificio-loader__word" aria-label="ARTIFICIO">
+                    <span>A</span>
+                    <span>R</span>
+                    <span>T</span>
+                    <span>I</span>
+                    <span>F</span>
+                    <span>I</span>
+                    <span>C</span>
+                    <span>I</span>
+                    <span>O</span>
+                </div>
+
+                <p class="artificio-loader__tag">
+                    Design. Expérience. Conversion.
                 </p>
+
+                <div class="artificio-loader__line"></div>
             </div>
-            <div>
-                <h4 class="footer-title">Services</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Conseil & Stratégie</a></li>
-                    <li><a href="#">Studio Graphique</a></li>
-                    <li><a href="#">Développement Web</a></li>
-                    <li><a href="#">Marketing Digital</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="footer-title">Entreprise</h4>
-                <ul class="footer-links">
-                    <li><a href="#about">À Propos</a></li>
-                    <li><a href="#processus">Processus</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="footer-title">Contact</h4>
-                <ul class="footer-links">
-                    <li><a href="mailto:contact@artificio.com">contact@artificio.com</a></li>
-                    <li><a href="tel:+33123456789">+33 1 23 45 67 89</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Instagram</a></li>
-                </ul>
+
+            <div class="artificio-loader__progress">
+                <div class="artificio-loader__progress-track">
+                    <span class="artificio-loader__progress-bar"></span>
+                </div>
+                <div class="artificio-loader__meta">
+                    <span class="artificio-loader__status">Initialisation</span>
+                    <span class="artificio-loader__percent" id="loaderPercent">0%</span>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Artificio. Tous droits réservés. | <a href="#">Mentions Légales</a> | <a href="#">Politique de Confidentialité</a></p>
-        </div>
-    </footer>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="site-footer"></div>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
-    
-    <!-- Immediate Theme Toggle Script -->
-    <script>
-        // Define toggleTheme immediately
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            const themeIcon = document.querySelector('.theme-toggle .icon');
-            
-            console.log('Toggling theme from', currentTheme, 'to', newTheme);
-            
-            // Apply new theme
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('artificio-theme', newTheme);
-            
-            // Update icon
-            if (themeIcon) {
-                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            }
-            
-            console.log('Theme changed to:', newTheme);
-        }
-        
-        // Attach event listener when DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeButton = document.getElementById('themeToggle');
-            if (themeButton) {
-                themeButton.addEventListener('click', toggleTheme);
-                console.log('Theme button listener attached');
-            }
-        });
-    </script>
+    <script src="/js/includes.js"></script>
+    <script src="/js/script.js" defer></script>
+    <script src="/js/script-website.js"></script>
+    <script src="/js/loader.js"></script>
+    <script src="/js/hero.js"></script>
 </body>
 </html>

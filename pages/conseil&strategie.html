@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificio - L'art de transformer l'ordinaire en expériences d'exception</title>
+    <meta name="description" content="Agence digitale complète spécialisée en brand content, stratégie digitale, développement web et marketing digital. Transformons vos idées en expériences d'exception.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- Ajoutez dans le <head> -->
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+  </head>
+  <body>
+    <div class="scroll-indicator"></div>
+
+    <button id="backToTop" aria-label="Retour en haut">
+        ⬆
+    </button> 
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+      <span class="icon">🌙</span>
+    </button> 
+
+     <!-- NAVBAR -->
+    <div id="site-navbar"></div>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+      <div class="custom-cursor"></div>
+      <div class="hero-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+      </div>
+      <div class="hero-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">NOTRE EXPERTISE</h1>
+          <p class="hero-subtitle">
+            Notre expertise couvre l’ensemble du digital : de la stratégie à la création, nous concevons des solutions performantes, cohérentes et orientées résultats.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary" data-open-wizard>🚀 Démarrer mon projet</a>
+            <a href="#themes" class="btn btn-secondary">📁 Découvrir nos services</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-shape" onclick="triggerShapeAnimation()">
+            <img src="../images/Soft skills-amico.png" alt="Origami" class="hero-image">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="themes-section why-section" id="themes" style="padding: 75px 0;">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Notre Expertise</h2>
+          <p class="section-subtitle">Choisissez un sujet et explorez nos contenus.</p>
+        </div>
+
+        <div class="themes-grid">
+          <!-- Card 1 -->
+          <article class="theme-card" data-href="pages/strategie.html" tabindex="0" aria-label="Stratégie digitale">
+            <div class="theme-card-inner">
+              <!-- FRONT -->
+              <div class="theme-face theme-front">
+                <h3 class="theme-title">Identité Visuelle et de Marque</h3>
+              </div>
+
+              <!-- BACK -->
+              <div class="theme-face theme-back why-section">
+                <p class="theme-desc">
+                  Créer une identité visuelle forte et cohérente qui rend votre marque immédiatement reconnaissable.
+                </p>
+                <a class="theme-cta" href="conseil&strat/identite.html" aria-label="Aller vers Stratégie digitale">
+                  <span>Découvrir</span>
+                  <span class="theme-arrow" aria-hidden="true">➜</span>
+                </a>
+              </div>
+            </div>
+          </article>
+          <!-- Card 2 -->
+          <article class="theme-card" data-href="pages/uiux.html" tabindex="0" aria-label="UI/UX Design">
+            <div class="theme-card-inner">
+              <div class="theme-face theme-front">
+                <h3 class="theme-title">Brand Content</h3>
+              </div>
+              <div class="theme-face theme-back why-section">
+                <p class="theme-desc">
+                  Des contenus de marque engageants pour raconter votre histoire et capter l’attention.
+                </p>
+                <a class="theme-cta" href="pages/uiux.html" aria-label="Aller vers UI/UX Design">
+                  <span>Découvrir</span>
+                  <span class="theme-arrow" aria-hidden="true">➜</span>
+                </a>
+              </div>
+            </div>
+          </article>
+          <!-- Card 3 -->
+          <article class="theme-card" data-href="pages/dev.html" tabindex="0" aria-label="Développement web">
+            <div class="theme-card-inner">
+              <div class="theme-face theme-front">
+                <h3 class="theme-title">Création de site vitrine/E-comm</h3>
+              </div>
+              <div class="theme-face theme-back why-section">
+                <p class="theme-desc">
+                  Des sites vitrines et e-commerce performants, pensés pour convertir et durer.
+                </p>
+                <a class="theme-cta" href="pages/dev.html" aria-label="Aller vers Développement web">
+                  <span>Découvrir</span>
+                  <span class="theme-arrow" aria-hidden="true">➜</span>
+                </a>
+              </div>
+            </div>
+          </article>
+          <!-- Card 4 -->
+          <article class="theme-card" data-href="pages/strategie.html" tabindex="0" aria-label="Stratégie digitale">
+            <div class="theme-card-inner">
+              <!-- FRONT -->
+              <div class="theme-face theme-front">
+                <h3 class="theme-title">Développement sur mesure</h3>
+              </div>
+              <!-- BACK -->
+              <div class="theme-face theme-back why-section">
+                <p class="theme-desc">
+                  Des solutions sur mesure, pensées pour répondre précisément à vos besoins métier.
+                </p>
+
+                <a class="theme-cta" href="pages/strategie.html" aria-label="Aller vers Stratégie digitale">
+                  <span>Découvrir</span>
+                  <span class="theme-arrow" aria-hidden="true">➜</span>
+                </a>
+              </div>
+            </div>
+          </article>
+          <!-- Card 5 -->
+          <article class="theme-card" data-href="pages/uiux.html" tabindex="0" aria-label="UI/UX Design">
+            <div class="theme-card-inner">
+              <div class="theme-face theme-front">
+                <h3 class="theme-title">UI/UX Design</h3>
+              </div>
+              <div class="theme-face theme-back why-section">
+                <p class="theme-desc">
+                  Des expériences UI/UX intuitives et esthétiques, pensées pour guider et convertir.
+                </p>
+                <a class="theme-cta" href="pages/uiux.html" aria-label="Aller vers UI/UX Design">
+                  <span>Découvrir</span>
+                  <span class="theme-arrow" aria-hidden="true">➜</span>
+                </a>
+              </div>
+            </div>
+          </article>
+          <!-- Card 3 -->
+          <article class="theme-card" data-href="pages/dev.html" tabindex="0" aria-label="Développement web">
+            <div class="theme-card-inner">
+              <div class="theme-face theme-front">
+                <h3 class="theme-title">Stratégie Digitale</h3>
+              </div>
+              <div class="theme-face theme-back why-section">
+                <p class="theme-desc">
+                  Une stratégie digitale claire et sur mesure pour atteindre vos objectifs de croissance.
+                </p>
+                <a class="theme-cta" href="pages/dev.html" aria-label="Aller vers Développement web">
+                  <span>Découvrir</span>
+                  <span class="theme-arrow" aria-hidden="true">➜</span>
+                </a>
+              </div>
+            </div>
+          </article>
+          <!-- Card 3 -->
+          <article class="theme-card" data-href="pages/dev.html" tabindex="0" aria-label="Développement web">
+            <div class="theme-card-inner">
+              <div class="theme-face theme-front">
+                <h3 class="theme-title">Référencement Naturel</h3>
+              </div>
+              <div class="theme-face theme-back why-section">
+                <p class="theme-desc">
+                  Un référencement naturel optimisé pour améliorer durablement votre visibilité en ligne.
+                </p>
+                <a class="theme-cta" href="pages/dev.html" aria-label="Aller vers Développement web">
+                  <span>Découvrir</span>
+                  <span class="theme-arrow" aria-hidden="true">➜</span>
+                </a>
+              </div>
+            </div>
+          </article>
+          <!-- Card 3 -->
+          <article class="theme-card" data-href="pages/dev.html" tabindex="0" aria-label="Développement web">
+            <div class="theme-card-inner">
+              <div class="theme-face theme-front">
+                <h3 class="theme-title">Référencement Payant</h3>
+              </div>
+              <div class="theme-face theme-back why-section">
+                <p class="theme-desc">
+                  Des campagnes de référencement payant optimisées pour générer des résultats mesurables.
+                </p>
+                <a class="theme-cta" href="pages/dev.html" aria-label="Aller vers Développement web">
+                  <span>Découvrir</span>
+                  <span class="theme-arrow" aria-hidden="true">➜</span>
+                </a>
+              </div>
+            </div>
+          </article>
+          <!-- Card 3 -->
+          <article class="theme-card" data-href="pages/dev.html" tabindex="0" aria-label="Développement web">
+            <div class="theme-card-inner">
+              <div class="theme-face theme-front">
+                <h3 class="theme-title">Social Média</h3>
+              </div>
+              <div class="theme-face theme-back why-section">
+                <p class="theme-desc">
+                  Une stratégie social media engageante pour développer votre visibilité et votre communauté.
+                </p>
+                <a class="theme-cta" href="pages/dev.html" aria-label="Aller vers Développement web">
+                  <span>Découvrir</span>
+                  <span class="theme-arrow" aria-hidden="true">➜</span>
+                </a>
+              </div>
+            </div>
+          </article>
+          <!-- Ajoute autant de cards que tu veux -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Page Loader -->
+    <!-- <div id="pageLoader" class="page-loader" aria-hidden="true">
+        <div class="loader-card">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Chargement…</p>
+        </div>
+    </div>   -->
+
+    <!-- Wizard Modal -->
+    <div class="wizard-modal" id="wizardModal" aria-hidden="true">
+      <div class="wizard-overlay" data-close-wizard></div>
+      <div class="wizard-dialog" role="dialog" aria-modal="true" aria-labelledby="wizardTitle">
+        <button class="wizard-close" type="button" aria-label="Fermer" data-close-wizard>✕</button>
+        <div class="wizard-header">
+          <h2 id="wizardTitle">Démarrer mon projet</h2>
+          <p>Parlez-nous de votre besoin, on revient vers vous rapidement.</p>
+        </div>
+        <div class="wizard-body">
+          <form class="contact-form">
+            <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" name="prenom" required>
+            </div>
+            <div class="form-group">
+                <label for="nom">Nom de famille</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="entreprise">Entreprise</label>
+                <input type="text" id="entreprise" name="entreprise">
+            </div>
+            <div class="form-group">
+                <label for="ville">Ville</label>
+                <input type="text" id="ville" name="ville" placeholder="Ex: Paris, New York, Londres...">
+            </div>
+            <div class="form-group">
+              <label for="pays">Pays</label>
+              <select id="pays" name="pays">
+                  <option value="">Sélectionnez votre pays</option>
+                  <option value="FR">France</option>
+                  <option value="BE">Belgique</option>
+                  <option value="CH">Suisse</option>
+                  <option value="CA">Canada</option>
+                  <option value="US">États-Unis</option>
+                  <option value="GB">Royaume-Uni</option>
+                  <option value="DE">Allemagne</option>
+                  <option value="ES">Espagne</option>
+                  <option value="IT">Italie</option>
+                  <option value="NL">Pays-Bas</option>
+                  <option value="AU">Australie</option>
+                  <option value="JP">Japon</option>
+                  <option value="BR">Brésil</option>
+                  <option value="MX">Mexique</option>
+                  <option value="IN">Inde</option>
+                  <option value="SG">Singapour</option>
+                  <option value="AE">Émirats Arabes Unis</option>
+                  <option value="MA">Maroc</option>
+                  <option value="TN">Tunisie</option>
+                  <option value="SN">Sénégal</option>
+                  <option value="CI">Côte d'Ivoire</option>
+                  <option value="OTHER">Autre</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label for="service">Service souhaité</label>
+              <select id="service" name="service">
+                <option value="">Sélectionnez un service</option>
+                <option value="conseil">Conseil & Stratégie Digitale</option>
+                <option value="design">Studio Graphique UI/UX</option>
+                <option value="dev">Développement Web</option>
+                <option value="maintenance">Maintenance & Sécurité</option>
+                <option value="social">Social Média</option>
+                <option value="marketing">Marketing Digital</option>
+                <option value="multiple">Plusieurs services</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label for="projet">Décrivez votre projet</label>
+              <textarea id="projet" name="projet" rows="5" placeholder="Parlez-nous de votre vision, vos objectifs, vos besoins, votre budget approximatif..." required></textarea>
+            </div>
+            <div class="form-group full-width">
+                <button type="submit" class="submit-btn">Envoyer la Demande</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page Loader -->
+    <!-- <div id="pageLoader" class="page-loader" aria-hidden="true">
+      <div class="loader-card">
+        <div class="loader-spinner"></div>
+        <p class="loader-text">Chargement…</p>
+      </div>
+    </div>   -->
+
+    <!-- FOOTER -->
+    <div id="site-footer"></div>
+  
+    <!-- JavaScript -->
+    <script src="/js/script.js" defer></script>
+    <script src="/js/includes.js"></script>
+
+    <style>
+      /* HERO version "demi-page" */
+      .hero{
+        display: flex;
+        min-height: 45vh;    
+        padding: 100px 0 120px;
+        align-items: flex-start;
+      }
+
+      .hero::after{
+        content:"";
+        position:absolute;
+        left:0; right:0; bottom:0;
+        height: 55px;
+        pointer-events:none;
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, var(--bg-color, #fff) 100%);
+      }
+
+      .hero + section{
+        margin-top: -36px; 
+        padding-top: 64px;  
+      }
+
+      .hero-container{
+        background: rgba(255,255,255,0.02);
+        border-radius: 24px;
+        padding: 2rem;
+        gap: 2.2rem;              
+        margin-top: -10px;
+        backdrop-filter: blur(14px);
+        overflow: visible;
+      }
+
+      .hero-orbs,
+      .hero-particles{
+        max-height: 48vh;
+        opacity: 0.85;
+      }
+
+      /* Layout équilibré */
+      .hero-container{
+        align-items: center;
+        gap: 3rem;
+      }
+
+      /* Titre légèrement plus compact si besoin */
+      .hero-title{
+        line-height: 1.05;
+        font-size: clamp(2.2rem, 3.4vw, 3.1rem);
+      }
+
+      .hero-subtitle{
+        font-size: 1rem;
+        line-height: 1.55;
+        max-width: 54ch;
+      }
+
+      /* Visuel plus compact */
+      .hero-visual{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-shape{
+        width: min(380px, 34vw);
+        height: min(380px, 34vw);
+      }
+
+      .hero-image{
+        width: 100%;
+        height: auto;
+        max-height: 420px;
+        object-fit: contain;
+        max-height: 360px;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px){
+        .hero{
+          min-height: auto;
+          padding: 95px 0 50px;
+        }
+
+        .hero-orbs,
+        .hero-particles{
+          max-height: 420px;
+        }
+
+        .hero-container{
+          grid-template-columns: 1fr; /* si tu es en grid */
+          gap: 2rem;
+          text-align: center;
+        }
+
+        .hero-subtitle{
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .hero-cta{
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+      }
+      .theme-card {
+        position: relative;
+        border-radius: 20px;
+        perspective: 1200px;
+        z-index: 1;
+      }
+
+      .theme-card::before {
+        content: "";
+        position: absolute;
+        inset: -35%;
+        background: radial-gradient(
+          circle,
+          rgba(138, 43, 226, 0.16),
+          rgba(230, 108, 156, 0.10),
+          transparent 65%
+        );
+        filter: blur(45px);
+        opacity: 0.45;
+        z-index: -1;
+        pointer-events: none;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+
+      .theme-card:hover::before,
+      .theme-card:focus-visible::before {
+        opacity: 0.65;
+        transform: scale(1.05);
+      }
+
+      [data-theme="light"] .theme-card::before {
+        opacity: 0.25;
+        filter: blur(55px);
+      }
+
+      .theme-card:nth-child(odd)::before {
+        background: radial-gradient(
+          circle,
+          rgba(138, 43, 226, 0.18),
+          transparent 70%
+        );
+      }
+
+      .theme-card:nth-child(even)::before {
+        background: radial-gradient(
+          circle,
+          rgba(230, 108, 156, 0.18),
+          transparent 70%
+        );
+      }
+    </style>
+  </body>
+</html>

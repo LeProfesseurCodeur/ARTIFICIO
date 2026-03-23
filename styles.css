@@ -8,6 +8,13 @@
     --border-radius: 20px;
     --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     --box-shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.15);
+
+    --dark-bg-main: #0b0b12;
+    /* NOIR RÉFÉRENCE (screen 1) */
+    --dark-bg-soft: #111118;
+    /* sections secondaires */
+    --dark-card-bg: #15151d;
+    /* cards */
 }
 
 /* THÈME JOUR (par défaut) */
@@ -22,7 +29,7 @@
         radial-gradient(circle at 80% 20%, rgba(230, 108, 156, 0.8) 0%, transparent 50%),
         linear-gradient(135deg, #3700AD 0%, #E66C9C 100%);
     --section-bg: #ffffff;
-    --section-alt-bg: #f8f9fa;
+    --section-alt-bg: #f7f7fb;
     --card-bg: #ffffff;
     --card-border: rgba(55, 0, 173, 0.08);
     --navbar-bg-transparent: transparent;
@@ -38,12 +45,12 @@
     --bg-gray: #1a1a1a;
     --bg-dark: #1a1a1a;
     --hero-bg: #1a1a1a;
-    --section-bg: #1a1a1a;
-    --section-alt-bg: #1a1a1a;
+    --section-bg: var(--dark-bg-main);
+    --section-alt-bg: var(--dark-bg-main);
     --card-bg: #1a1a1a;
     --card-border: rgba(55, 0, 173, 0.3);
     --navbar-bg-transparent: transparent;
-    --navbar-bg-solid: rgba(26, 26, 26, 0.98);
+    --navbar-bg-solid: rgba(11, 11, 18, 0.88);
 }
 
 :root {
@@ -60,26 +67,49 @@
     --menu-hover: rgba(255, 255, 255, 0.06);
 }
 
+[data-theme="dark"] body {
+    background: var(--dark-bg-main);
+}
+
+[data-theme="dark"] section {
+    background-color: var(--dark-bg-main);
+}
+
+[data-theme="dark"] .services,
+[data-theme="dark"] .expertises,
+[data-theme="dark"] .services-section {
+    background: var(--dark-bg-soft);
+}
+
+[data-theme="dark"] .process-step,
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .why-card {
+    background: var(--dark-card-bg);
+}
+
 /* BOUTON TOGGLE THÈME */
 .theme-toggle {
     position: fixed;
-    top: 50%;
+    bottom: 28px;
     right: 30px;
-    transform: translateY(-50%);
-    width: 60px;
-    height: 60px;
+    /* placé à gauche du backToTop */
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     border: none;
-    background: var(--primary-gradient);
-    color: white;
-    font-size: 1.5rem;
     cursor: pointer;
-    z-index: 1001;
-    transition: var(--transition);
-    box-shadow: 0 8px 25px rgba(55, 0, 173, 0.3);
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background: linear-gradient(135deg, #6a00ff, #ff5ea8);
+    color: #fff;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    z-index: 999;
+
+    transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .theme-toggle:hover {
@@ -88,28 +118,22 @@
 }
 
 .theme-toggle .icon {
-    transition: all 0.3s ease;
-    transform: rotate(0deg);
+    /* transition: all 0.3s ease;
+    transform: rotate(0deg); */
+
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Hover desktop */
+@media (hover: hover) {
+    .theme-toggle:hover {
+        transform: translateY(-4px);
+    }
 }
 
 [data-theme="dark"] .theme-toggle .icon {
     transform: rotate(180deg);
-}
-
-/* UNIVERSAL SHADOW REMOVAL - MAXIMUM PRIORITY */
-* {
-    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease !important;
-}
-
-.service-card,
-.service-card:hover,
-.service-card:focus,
-.service-card:active,
-.stat-card,
-.stat-card:hover,
-.stat-card:focus,
-.stat-card:active {
-    box-shadow: none !important;
 }
 
 /* HERO THÉMATIQUE */
@@ -159,7 +183,7 @@
 }
 
 .cta-section {
-    background: var(--primary-gradient);
+    background: var(--section-alt-bg);
 }
 
 /* CARTES THÉMATIQUES */
@@ -192,10 +216,110 @@ html:not([data-theme="dark"]) .stat-card:hover {
 /* Force dark theme for all cards */
 [data-theme="dark"] .service-card,
 [data-theme="dark"] .stat-card {
-    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+    /* background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important; */
     border: 1px solid rgba(55, 0, 173, 0.4) !important;
     color: #ffffff !important;
+    background: rgba(20, 20, 24, .88);
+    background-image: linear-gradient(rgba(20, 20, 24, .88), rgba(20, 20, 24, .88)), linear-gradient(135deg, rgba(106, 0, 255, .55), rgba(255, 94, 168, .45));
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== ANIMATION SCROLL ===== */
+@keyframes focusSection {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Quand on arrive sur la section via l’ancre */
+#services:target {
+    animation: focusSection 0.8s ease-out;
+}
+
+#services:target::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background: radial-gradient(circle at top,
+            rgba(140, 80, 255, 0.18),
+            transparent 70%);
+    animation: halo 1.2s ease-out;
+    pointer-events: none;
+}
+
+@keyframes halo {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* ===== PAGE LOADER ===== */
+/* .page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: grid;
+    place-items: center;
+    background: rgba(10, 10, 16, 0.35);
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .25s ease, visibility .25s ease;
+}
+
+.page-loader.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loader-card {
+    width: min(360px, 88vw);
+    padding: 22px 18px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(106, 0, 255, 0.22), rgba(255, 94, 168, 0.22));
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.loader-spinner {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.35);
+    border-top-color: rgba(255, 255, 255, 0.95);
+    margin: 0 auto 12px;
+    animation: spin 0.8s linear infinite;
+}
+
+.loader-text {
+    margin: 0;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: .2px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+} */
+
 
 /* ===== CONTACT FORM ===== */
 .contact-form {
@@ -365,23 +489,64 @@ body {
 }
 
 /* ===== NAVIGATION ===== */
-.navbar {
+/* .navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--nav-bg);
     backdrop-filter: blur(20px);
     z-index: 1000;
     padding: 1rem 0;
     transition: var(--transition);
     border-bottom: 1px solid rgba(55, 0, 173, 0.1);
+} */
+
+/* =========================
+   NAVBAR — état par défaut (TOP PAGE)
+   ========================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background: transparent;
+    backdrop-filter: none;
+
+    z-index: 1000;
+    padding: 1rem 0;
+
+    border-bottom: 1px solid transparent;
+
+    transition:
+        background-color 0.3s ease,
+        backdrop-filter 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
 
-.navbar.scrolled {
-    background: rgba(255, 255, 255, 0.98);
+/* =========================
+   NAVBAR — SCROLL (LIGHT)
+   ========================= */
+html:not([data-theme="dark"]) .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
     box-shadow: var(--box-shadow);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
+
+/* =========================
+   NAVBAR — SCROLL (DARK)
+   ========================= */
+[data-theme="dark"] .navbar.scrolled {
+    background: rgba(11, 11, 18, 0.88);
+    /* noir premium Artificio */
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 
 .nav-container {
     max-width: 1200px;
@@ -784,62 +949,6 @@ body {
     color: var(--primary-purple);
 }
 
-/* === Navbar/Mobile menu — thème sombre === */
-
-/* Navbar (dark) */
-[data-theme="dark"] .navbar {
-    background: rgba(17, 17, 17, 0.92) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
-    box-shadow: none;
-}
-
-[data-theme="dark"] .navbar.scrolled {
-    background: rgba(17, 17, 17, 0.96) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    border-bottom-color: rgba(255, 255, 255, 0.12) !important;
-}
-
-/* Mobile menu panel (dark) */
-[data-theme="dark"] .mobile-menu {
-    background: rgba(17, 17, 17, 0.94) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
-    backdrop-filter: blur(20px);
-}
-
-/* Mobile links + dividers (dark) */
-[data-theme="dark"] .mobile-menu-link {
-    color: #fff !important;
-}
-
-[data-theme="dark"] .mobile-menu-link:hover {
-    color: #d9ccff !important;
-}
-
-[data-theme="dark"] .mobile-menu-item {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-/* Transparent tant qu’on n’a pas scrollé */
-.navbar:not(.scrolled) {
-    background: transparent !important;
-    border-bottom: none !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-}
-
-/* Lisibilité sur fond transparent */
-.navbar:not(.scrolled) .logo,
-.navbar:not(.scrolled) .nav-link,
-.navbar:not(.scrolled) .theme-toggle,
-.navbar:not(.scrolled) .mobile-menu-btn span {
-    color: #fff !important;
-}
-
-.navbar:not(.scrolled) .mobile-menu-btn span {
-    background: #fff !important;
-}
-
-
 /* ===== SCROLL INDICATOR ===== */
 .scroll-indicator {
     position: fixed;
@@ -852,6 +961,74 @@ body {
     transform: scaleX(0);
     z-index: 1001;
     transition: transform 0.1s ease;
+}
+
+.scroll-indicator-fleche {
+    /* position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none; */
+
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    background: transparent;
+    border: 0;
+    padding: 10px;
+    cursor: pointer;
+
+    display: grid;
+    place-items: center;
+
+    transition: transform .2s ease, opacity .2s ease;
+}
+
+.scroll-indicator-fleche:hover {
+    transform: translateX(-50%) translateY(-2px);
+}
+
+.scroll-indicator-fleche:active {
+    transform: translateX(-50%) translateY(1px);
+}
+
+.scroll-indicator-fleche:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, .7);
+    outline-offset: 6px;
+    border-radius: 999px;
+}
+
+.scroll-arrow {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+    border-right: 2px solid rgba(255, 255, 255, 0.9);
+    transform: rotate(45deg);
+    animation: scrollBounce 2s infinite;
+    opacity: 0.9;
+}
+
+/* Animation */
+@keyframes scrollBounce {
+    0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(10px) rotate(45deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.4;
+    }
 }
 
 /* ===== HERO SECTION ===== */
@@ -1026,7 +1203,58 @@ body {
     animation: slideInRight 1s ease-out;
 }
 
-.hero-shape {
+/* .hero-image {
+    width: 80%;
+    height: 80%;
+    position: relative;
+} */
+
+/* @media (max-width: 768px) {
+    .hero-visual {
+        opacity: 0;
+        pointer-events: none;
+    }
+} */
+
+@media (max-width: 768px) {
+
+    /* 1) On enlève carrément le visuel (l’étoile) */
+    .hero .hero-visual {
+        display: none;
+    }
+
+    /* 2) On enlève la "place" réservée au visuel */
+    .hero .hero-container {
+        display: block;
+        /* au lieu de flex 2 colonnes */
+    }
+
+    /* 3) On réduit la hauteur du hero (gros vide) */
+    .hero {
+        min-height: auto;
+        /* si tu avais 100vh */
+        padding: 80px 20px 40px;
+        /* ajuste selon ton header */
+    }
+
+    /* 4) On resserre les espacements du contenu */
+    .hero .hero-content {
+        margin: 0;
+        padding: 0;
+    }
+
+    .hero .hero-cta {
+        margin-top: 20px;
+        gap: 12px;
+        /* si tu utilises gap en flex */
+    }
+}
+
+
+/*
+    origami
+*/
+/* .hero-shape {
     width: 400px;
     height: 400px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
@@ -1044,9 +1272,13 @@ body {
         inset 0 2px 20px rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
+} */
 
-.hero-shape::before {
+
+/*
+    origami
+*/
+/* .hero-shape::before {
     content: '';
     position: absolute;
     top: -2px;
@@ -1057,7 +1289,7 @@ body {
     border-radius: inherit;
     animation: shimmer 3s infinite;
     z-index: -1;
-}
+} */
 
 @keyframes shimmer {
     0% {
@@ -1300,7 +1532,8 @@ body {
 }
 
 .section-title {
-    font-size: 2.5rem;
+    /* font-size: 2.5rem; */
+    font-size: clamp(2rem, 4vw, 3.1rem);
     font-weight: 900;
     margin-bottom: 1rem;
     background: var(--primary-gradient);
@@ -1319,8 +1552,8 @@ body {
 /* ===== WHY ARTIFICIO SECTION ===== */
 .why-section {
     background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
-    border-top: 1px solid rgba(55, 0, 173, 0.05);
-    border-bottom: 1px solid rgba(55, 0, 173, 0.05);
+    /* border-top: 1px solid rgba(55, 0, 173, 0.05);
+    border-bottom: 1px solid rgba(55, 0, 173, 0.05); */
 }
 
 .stats-grid {
@@ -1408,9 +1641,14 @@ body {
     padding: 2.5rem;
     border-radius: var(--border-radius);
     border: 1px solid var(--card-border);
-    transition: var(--transition);
+    /* transition: var(--transition); */
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
 }
 
 .service-card::before {
@@ -1429,8 +1667,34 @@ body {
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(230, 108, 156, 0.35);
     border-color: rgba(55, 0, 173, 0.3);
+}
+
+.service-card:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 3px rgba(230, 108, 156, 0.6),
+        0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.service-card::after {
+    content: "→";
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.2rem;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover::after {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .service-icon {
@@ -1478,11 +1742,129 @@ body {
 }
 
 /* ===== PROCESS SECTION ===== */
-.process-steps {
+/* .process-steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+} */
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 48px;
+    align-items: stretch;
 }
+
+.process-step {
+    border-radius: 22px;
+    border: 1.5px solid transparent;
+
+    background-clip: padding-box;
+    position: relative;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* centre le contenu horizontalement */
+    text-align: center;
+    padding: 28px 22px;
+
+    gap: 8px;
+}
+
+
+.step-number {
+    margin-bottom: 16px;
+    transition: transform .25s ease;
+}
+
+.step-title {
+    margin: 0 0 12px;
+    min-height: 3.2em;
+    /* ALIGNE les titres sur 2 lignes max */
+}
+
+.step-desc {
+    margin: 0;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+.process-step::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 2px;
+    /* épaisseur de la bordure */
+
+    background: linear-gradient(135deg, #6a00ff, #ff5ea8);
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    pointer-events: none;
+}
+
+@media (hover: hover) {
+    .process-step {
+        transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .process-step:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
+    }
+
+    .process-step:hover::before {
+        opacity: 1;
+    }
+
+    .process-step:hover .step-number {
+        transform: scale(1.06);
+    }
+}
+
+
+
+/* TABLETTE MODE */
+@media (max-width: 1024px) {
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+        /* gap: 36px; */
+    }
+}
+
+/* MOBILE MODE */
+@media (max-width: 640px) {
+    .process-steps {
+        grid-template-columns: 1fr;
+        /* gap: 28px; */
+    }
+}
+
+@media (min-width: 1280px) {
+    .process-steps {
+        max-width: 1200px;
+        margin-inline: auto;
+    }
+}
+
+.process-step {
+    padding: 32px 24px;
+}
+
+
 
 .process-step {
     text-align: center;
@@ -1547,7 +1929,7 @@ body {
 }
 
 .about-visual {
-    background: var(--primary-gradient);
+    /* background: var(--primary-gradient);
     border-radius: var(--border-radius);
     height: 400px;
     display: flex;
@@ -1556,7 +1938,31 @@ body {
     font-size: 5rem;
     color: white;
     position: relative;
+    overflow: hidden; */
+
+    background: var(--primary-gradient);
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 640px;
+    /* ajuste si tu veux plus grand */
+    aspect-ratio: 16 / 10;
+    /* ratio du cadre (modifie si besoin) */
+    border-radius: 28px;
     overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-visual .about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* remplit le cadre sans déformation */
+    object-position: center;
+    /* centre l'image */
+    display: block;
 }
 
 .about-visual::before {
@@ -3223,14 +3629,14 @@ body {
     font-size: 2rem;
     font-weight: 900;
     margin-bottom: 1rem;
-    background: var(--primary-gradient);
+    background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .footer-desc {
-    color: #ccc;
+    color: #ffffff;
     margin-bottom: 2rem;
     line-height: 1.6;
 }
@@ -3251,7 +3657,7 @@ body {
 }
 
 .footer-links a {
-    color: #ccc;
+    color: #ffffff;
     text-decoration: none;
     transition: var(--transition);
 }
@@ -3265,11 +3671,11 @@ body {
     margin-top: 2rem;
     padding-top: 2rem;
     text-align: center;
-    color: #888;
+    color: #ffffff;
 }
 
 .footer-bottom a {
-    color: #888;
+    color: #ffffff;
     text-decoration: none;
     transition: var(--transition);
 }
@@ -3277,6 +3683,51 @@ body {
 .footer-bottom a:hover {
     color: var(--primary-pink);
 }
+
+/* ===== BACK TO TOP ===== */
+
+#backToTop {
+    position: fixed;
+    bottom: 28px;
+    right: 90px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 999;
+
+    background: linear-gradient(135deg, #6a00ff, #ff5ea8);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Visible quand actif */
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Hover desktop */
+@media (hover: hover) {
+    #backToTop:hover {
+        transform: translateY(-4px);
+    }
+}
+
 
 /* ===== ANIMATIONS ===== */
 .fade-in {
@@ -3301,11 +3752,11 @@ body {
         min-width: 700px;
     }
 
-    .hero-shape {
+    /* .hero-shape {
         width: 350px;
         height: 350px;
         font-size: 5rem;
-    }
+    } */
 }
 
 @media (max-width: 768px) {
@@ -3330,11 +3781,11 @@ body {
         gap: 2rem;
     }
 
-    .hero-shape {
+    /* .hero-shape {
         width: 300px;
         height: 300px;
         font-size: 4rem;
-    }
+    } */
 
     .hero-cta {
         flex-direction: column;
@@ -4468,4 +4919,2611 @@ body {
 .aiw-card h5 {
     margin: 0 0 .4rem;
     font-size: .95rem;
+}
+
+/* ===== Artificio Wizard – UI refresh ================================== */
+:root {
+    --aiw-bg: #ffffff;
+    --aiw-surface: rgba(255, 255, 255, .92);
+    --aiw-border: rgba(0, 0, 0, .1);
+    --aiw-text: #0f1222;
+    --aiw-muted: #6b7280;
+    --aiw-grad-a: #7c3aed;
+    --aiw-grad-b: #f43f5e;
+    --aiw-shadow: 0 10px 30px rgba(20, 12, 54, .24), 0 2px 8px rgba(20, 12, 54, .12);
+}
+
+[data-theme="dark"] {
+    --aiw-bg: #0b0f14;
+    --aiw-surface: rgba(19, 23, 31, .9);
+    --aiw-border: rgba(255, 255, 255, .1);
+    --aiw-text: #e8ecf6;
+    --aiw-muted: #a5adc1;
+    --aiw-shadow: 0 10px 30px rgba(0, 0, 0, .5), 0 2px 10px rgba(0, 0, 0, .35);
+}
+
+#aiWizardModal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none
+}
+
+#aiWizardModal.open {
+    display: block
+}
+
+#aiWizardModal .aiw-overlay {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(8px);
+    background: radial-gradient(1200px 800px at 20% -10%, rgba(124, 58, 237, .25), transparent 60%), rgba(10, 12, 16, .45)
+}
+
+#aiWizardModal .aiw-dialog {
+    position: relative;
+    margin: 4vh auto;
+    width: min(960px, 94vw);
+    border-radius: 18px;
+    background: var(--aiw-surface);
+    border: 1px solid var(--aiw-border);
+    box-shadow: var(--aiw-shadow);
+    overflow: hidden;
+    color: var(--aiw-text)
+}
+
+.aiw-header {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: inherit;
+    border-bottom: 1px solid var(--aiw-border)
+}
+
+.aiw-title {
+    font-weight: 800;
+    letter-spacing: .2px
+}
+
+.aiw-close {
+    border: 0;
+    background: transparent;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--aiw-muted);
+    cursor: pointer
+}
+
+.aiw-close:hover {
+    color: var(--aiw-text)
+}
+
+.aiw-progress {
+    height: 6px;
+    border-bottom: 1px solid var(--aiw-border)
+}
+
+.aiw-progress .aiw-bar {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--aiw-grad-a), var(--aiw-grad-b));
+    transition: width .35s ease
+}
+
+.aiw-form {
+    display: flex;
+    flex-direction: column;
+    max-height: 72vh
+}
+
+.aiw-controls {
+    padding: 22px 20px 14px;
+    overflow: auto;
+    scroll-behavior: smooth
+}
+
+.aiw-actions {
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--aiw-surface) 95%, transparent), var(--aiw-surface));
+    border-top: 1px solid var(--aiw-border)
+}
+
+.aiw-tools {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap
+}
+
+.btn {
+    border: 1px solid var(--aiw-border);
+    background: #fff;
+    color: #111827;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 800;
+    letter-spacing: .2px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .05);
+    transition: transform .12s ease, box-shadow .2s ease, background .2s ease
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .08)
+}
+
+.btn-primary {
+    border: 0;
+    color: #fff;
+    background: linear-gradient(90deg, var(--aiw-grad-a), var(--aiw-grad-b));
+    box-shadow: 0 6px 16px rgba(124, 58, 237, .35)
+}
+
+.btn-primary:hover {
+    box-shadow: 0 8px 22px rgba(124, 58, 237, .45)
+}
+
+[data-theme="dark"] .btn {
+    background: rgba(255, 255, 255, .06);
+    color: var(--aiw-text);
+    border-color: var(--aiw-border)
+}
+
+.aiw-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--aiw-border);
+    margin: 4px;
+    cursor: pointer;
+    user-select: none;
+    background: rgba(0, 0, 0, .02)
+}
+
+.aiw-chip.selected {
+    color: #fff;
+    border-color: transparent;
+    background: linear-gradient(90deg, var(--aiw-grad-a), var(--aiw-grad-b))
+}
+
+[data-theme="dark"] .aiw-chip {
+    background: rgba(255, 255, 255, .06)
+}
+
+.aiw-coh {
+    margin: 0 0 14px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #fff7f2;
+    border: 1px solid #fde2cf;
+    color: #5b3200
+}
+
+[data-theme="dark"] .aiw-coh {
+    background: rgba(255, 255, 255, .06);
+    border-color: rgba(255, 255, 255, .12);
+    color: #ffd9b3
+}
+
+.aiw-badge {
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: .78rem;
+    font-weight: 800;
+    margin-left: 6px
+}
+
+.aiw-badge.ok {
+    background: #e8fff0;
+    color: #0b7a3b
+}
+
+.aiw-badge.warn {
+    background: #fff8e6;
+    color: #7a5a0b
+}
+
+.aiw-badge.risk {
+    background: #ffecec;
+    color: #8a1020
+}
+
+[data-theme="dark"] .aiw-badge.ok {
+    background: #0e2a1a;
+    color: #8ee5b2
+}
+
+[data-theme="dark"] .aiw-badge.warn {
+    background: #2c250e;
+    color: #f2d07a
+}
+
+[data-theme="dark"] .aiw-badge.risk {
+    background: #2d0f14;
+    color: #ff9aa6
+}
+
+.aiw-field {
+    margin: 10px 0 14px
+}
+
+.aiw-field label {
+    display: block;
+    font-weight: 800;
+    margin-bottom: 6px
+}
+
+.aiw-input,
+.aiw-select,
+.aiw-textarea {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--aiw-border);
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, .9);
+    color: var(--aiw-text)
+}
+
+[data-theme="dark"] .aiw-input,
+[data-theme="dark"] .aiw-select,
+[data-theme="dark"] .aiw-textarea {
+    background: rgba(255, 255, 255, .06)
+}
+
+@media (max-width:640px) {
+    .aiw-form {
+        max-height: 78vh
+    }
+
+    .aiw-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px
+    }
+
+    .aiw-nav {
+        display: flex;
+        gap: 10px
+    }
+
+    .aiw-nav .btn {
+        flex: 1
+    }
+}
+
+/* ====================================================================== */
+
+
+/* ===== Fallback "no-js" : forcer l'affichage si le JS ne tourne pas ===== */
+.no-js .reveal,
+.no-js [data-reveal],
+.no-js .section,
+.no-js [data-animate],
+.no-js .fade-in,
+.no-js .slide-up {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    visibility: visible !important;
+}
+
+/* === Button color lock (same in light & dark) === */
+:root {
+    --cta-gradient: linear-gradient(90deg, #3700AD 0%, #E66C9C 100%);
+    --btn-secondary-bg: #ffffff;
+    --btn-secondary-fg: #111827;
+}
+
+/* Primary (gradient) */
+.btn-primary,
+.nav-link.cta {
+    background: var(--cta-gradient) !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+/* Secondary (white) */
+.btn-secondary {
+    background: var(--btn-secondary-bg) !important;
+    color: var(--btn-secondary-fg) !important;
+    border: 1px solid rgba(17, 24, 39, 0.10) !important;
+}
+
+/* Keep the exact same styles in dark mode */
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .nav-link.cta {
+    background: var(--cta-gradient) !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+[data-theme="dark"] .btn-secondary {
+    background: var(--btn-secondary-bg) !important;
+    color: var(--btn-secondary-fg) !important;
+    border: 1px solid rgba(17, 24, 39, 0.10) !important;
+}
+
+/* Consistent hover */
+.btn-primary:hover,
+[data-theme="dark"] .btn-primary:hover,
+.nav-link.cta:hover,
+[data-theme="dark"] .nav-link.cta:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.btn-secondary:hover,
+[data-theme="dark"] .btn-secondary:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+    transform: translateY(-1px);
+}
+
+/* === HÉROS : CTA en mode sombre uniquement ================================= */
+[data-theme="dark"] #accueil .btn-primary {
+    /* dégradé violet → rose, identique au visuel */
+    background: linear-gradient(90deg, var(--primary-purple, #3700AD) 0%, var(--primary-pink, #E66C9C) 100%);
+    color: #fff;
+    border: 0;
+    box-shadow:
+        0 10px 25px rgba(55, 0, 173, .35),
+        0 8px 22px rgba(230, 108, 156, .25);
+    transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+}
+
+[data-theme="dark"] #accueil .btn-primary:hover,
+[data-theme="dark"] #accueil .btn-primary:focus-visible {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+    box-shadow:
+        0 14px 30px rgba(55, 0, 173, .45),
+        0 10px 26px rgba(230, 108, 156, .35);
+    outline: none;
+}
+
+/* bouton secondaire blanc (pastille) */
+[data-theme="dark"] #accueil .btn-secondary {
+    background: #ffffff;
+    color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, .12);
+    /* bordure subtile pour fond sombre */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .25);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+[data-theme="dark"] #accueil .btn-secondary:hover,
+[data-theme="dark"] #accueil .btn-secondary:focus-visible {
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .35);
+    outline: none;
+}
+
+/* s’assure qu’aucune règle globale “dark” ne rende ces boutons transparents */
+[data-theme="dark"] #accueil .btn-primary,
+[data-theme="dark"] #accueil .btn-secondary {
+    background-clip: border-box;
+    /* évite les effets de mix-blend */
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+/* Héros : style sombre UNIQUEMENT pour les deux CTA marqués .btn-hero */
+[data-theme="dark"] .btn.btn-hero.btn-primary {
+    background: linear-gradient(90deg, var(--primary-purple, #3700AD) 0%, var(--primary-pink, #E66C9C) 100%) !important;
+    color: #fff !important;
+    border: 0 !important;
+    box-shadow:
+        0 10px 25px rgba(55, 0, 173, .35),
+        0 8px 22px rgba(230, 108, 156, .25);
+    transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+}
+
+[data-theme="dark"] .btn.btn-hero.btn-primary:hover,
+[data-theme="dark"] .btn.btn-hero.btn-primary:focus-visible {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+    box-shadow:
+        0 14px 30px rgba(55, 0, 173, .45),
+        0 10px 26px rgba(230, 108, 156, .35);
+    outline: none;
+}
+
+[data-theme="dark"] .btn.btn-hero.btn-secondary {
+    background: #fff !important;
+    color: #1a1a1a !important;
+    border: 1px solid rgba(255, 255, 255, .12) !important;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .25);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+[data-theme="dark"] .btn.btn-hero.btn-secondary:hover,
+[data-theme="dark"] .btn.btn-hero.btn-secondary:focus-visible {
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .35);
+    outline: none;
+}
+
+/* neutralise d’éventuelles règles “dark” trop globales */
+[data-theme="dark"] .btn.btn-hero {
+    background-clip: border-box;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* Dark mode — boutons héros sans effet (pas de glow, pas d'anim) */
+[data-theme="dark"] .btn.btn-hero {
+    box-shadow: none !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+}
+
+/* État hover/focus = identique (pas d'animation) */
+[data-theme="dark"] .btn.btn-hero:hover,
+[data-theme="dark"] .btn.btn-hero:focus-visible {
+    box-shadow: none !important;
+    transform: none !important;
+    filter: none !important;
+    outline: none !important;
+}
+
+/* Conserve juste les couleurs définies */
+[data-theme="dark"] .btn.btn-hero.btn-primary {
+    background: linear-gradient(90deg, var(--primary-purple, #3700AD) 0%, var(--primary-pink, #E66C9C) 100%) !important;
+    color: #fff !important;
+    border: 0 !important;
+}
+
+[data-theme="dark"] .btn.btn-hero.btn-secondary {
+    background: #fff !important;
+    color: #1a1a1a !important;
+    border: 1px solid rgba(255, 255, 255, .14) !important;
+}
+
+/* ===== Mobile menu: scroll & accordéon ===== */
+@media (max-width: 1024px) {
+
+    /* le panneau mobile doit pouvoir scroller */
+    #mobileMenu {
+        max-height: calc(100vh - var(--navbar-h, 72px));
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* le mega-menu devient un bloc "normal" en mobile */
+    #mobileMenu .mega-menu {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        padding: .5rem 0;
+        margin: .25rem 0 0;
+    }
+
+    /* accordéon */
+    #mobileMenu .has-sub>a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #mobileMenu .has-sub>a .chev {
+        transition: transform .2s ease;
+    }
+
+    #mobileMenu .has-sub .mega-menu {
+        display: none;
+    }
+
+    #mobileMenu .has-sub.open .mega-menu {
+        display: block;
+    }
+
+    #mobileMenu .has-sub.open>a .chev {
+        transform: rotate(180deg);
+    }
+
+    /* style simple pour la sous-liste */
+    #mobileMenu .mobile-sublist {
+        list-style: none;
+        padding-left: .5rem;
+        margin: .25rem 0 0;
+    }
+
+    #mobileMenu .mobile-sub-link {
+        display: block;
+        padding: .6rem .75rem;
+        border-radius: .5rem;
+        color: var(--text-muted);
+        text-decoration: none;
+    }
+
+    #mobileMenu .mobile-sub-link:hover {
+        background: rgba(255, 255, 255, .06);
+        color: var(--text);
+    }
+}
+
+/* ===================== RESPONSIVE FIX PACK (Artificio) ===================== */
+
+/* 1) Hauteur & layout de la navbar + CTA jamais rogné ni sur 2 lignes */
+:root {
+    --navbar-h: 72px;
+}
+
+.navbar {
+    height: var(--navbar-h);
+    overflow: visible !important;
+}
+
+.navbar .nav-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: clamp(.8rem, 2vw, 1.6rem);
+}
+
+.navbar .nav-cta-wrapper {
+    margin-left: auto;
+}
+
+.navbar .nav-link.cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    line-height: 1;
+    min-height: 40px;
+    padding: .65rem 1.05rem;
+    border-radius: 999px;
+}
+
+/* resserre un peu la nav entre 992–1200px pour éviter le wrap */
+@media (max-width: 1200px) {
+    :root {
+        --navbar-h: 68px;
+    }
+
+    .navbar .nav-menu {
+        gap: 1rem;
+    }
+
+    .navbar .nav-link.cta {
+        padding: .6rem .9rem;
+    }
+}
+
+/* passage menu mobile (1024px et moins) */
+@media (max-width: 1024px) {
+    :root {
+        --navbar-h: 64px;
+    }
+
+    .navbar .nav-menu {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+}
+
+/* 2) Offset d’ancre : les sections ne passent plus sous la navbar fixe */
+section[id] {
+    scroll-margin-top: calc(var(--navbar-h) + 14px);
+}
+
+/* 3) Grille Services fluide & stable (1/2/3 colonnes selon largeur) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(16px, 3vw, 28px);
+}
+
+.service-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* 4) Bouton thème : position fixe propre, ne chevauche pas le contenu */
+.theme-toggle {
+    position: fixed;
+    /* right: 20px;
+    bottom: 22px; */
+    z-index: 2000;
+    transform: none !important;
+}
+
+@media (max-width: 600px) {
+    .theme-toggle {
+        right: 14px;
+        bottom: 16px;
+    }
+}
+
+/* 5) Le CTA de nav garde son gradient en dark sans effets parasites */
+[data-theme="dark"] .nav-link.cta {
+    background: linear-gradient(90deg, var(--primary-purple, #3700AD), var(--primary-pink, #E66C9C));
+    color: #fff;
+    border: none;
+    filter: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* 6) Raccourcis qualité de vie (petits écrans) */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: clamp(1.6rem, 5vw, 2rem);
+    }
+
+    .section-subtitle {
+        font-size: .975rem;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+/* ========================================================================== */
+
+/* --- Mobile submenu: Services ------------------------------------------------ */
+.mobile-menu {
+    max-height: calc(100vh - var(--navbar-h, 72px));
+    overflow: auto;
+}
+
+@media (max-width:1024px) {
+
+    /* on désactive le mega-menu desktop en mobile */
+    .navbar .mega-menu {
+        display: none !important;
+    }
+}
+
+/* panneau accordéon injecté sous l’entrée “Services” du menu mobile */
+.mobile-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .28s ease;
+    margin: .25rem 1rem 0 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .04);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06);
+}
+
+.mobile-submenu.open {
+    /* ouvert dynamiquement en JS avec une hauteur mesurée */
+    /* la hauteur est fixée en JS -> style="max-height: Npx" */
+}
+
+.mobile-submenu a {
+    display: block;
+    padding: .9rem 1rem;
+    font-size: .98rem;
+    line-height: 1.2;
+    border-top: 1px solid rgba(255, 255, 255, .06);
+    color: var(--text-color, #fff);
+    text-decoration: none;
+}
+
+.mobile-submenu a:first-child {
+    border-top: 0;
+}
+
+@media (min-width:1025px) {
+    .mobile-submenu {
+        display: none !important;
+    }
+}
+
+/* =========================
+   NAVBAR – vertical centering
+   ========================= */
+:root {
+    --nav-h: 72px;
+}
+
+.navbar {
+    height: var(--nav-h);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .nav-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 24px;
+    /* no vertical padding */
+    box-sizing: border-box;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.navbar .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    height: 100%;
+    margin: 0 0 0 24px;
+}
+
+.navbar .nav-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 12px;
+    line-height: 1;
+    margin: 0;
+}
+
+.nav-cta-wrapper {
+    margin-left: auto;
+}
+
+.navbar .nav-link.cta {
+    height: auto;
+    /* buttons keep their pill height */
+    padding: .65rem 1.1rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mega menu aligns exactly under the link */
+.mega-bridge {
+    position: relative;
+}
+
+.mega-bridge>.nav-link {
+    position: relative;
+    z-index: 1;
+}
+
+.mega-bridge .mega-menu {
+    top: 100%;
+    left: 0;
+}
+
+/* Mobile tweaks */
+@media (max-width: 1024px) {
+    :root {
+        --nav-h: 64px;
+    }
+
+    .navbar .nav-menu {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+}
+
+/* =============== NAVBAR FIX (centrage vertical) =============== */
+:root {
+    --nav-h: 72px;
+}
+
+nav.navbar {
+    height: var(--nav-h) !important;
+}
+
+nav.navbar .nav-container {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 24px;
+    padding-block: 0 !important;
+    /* annule tout padding haut/bas hérité */
+    box-sizing: border-box;
+}
+
+nav.navbar .logo {
+    display: inline-flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+}
+
+nav.navbar .nav-menu {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    margin: 0 0 0 24px !important;
+    gap: 28px;
+}
+
+nav.navbar .nav-item {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+}
+
+nav.navbar .nav-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    padding-block: 0 !important;
+    /* enlève les paddings verticaux */
+    margin: 0 !important;
+    line-height: 1 !important;
+}
+
+/* le bouton “Démarrer un projet” garde sa forme pill mais est centré */
+nav.navbar .nav-link.cta {
+    height: auto !important;
+    align-self: center !important;
+    padding: .70rem 1.1rem !important;
+}
+
+/* bloc CTA à droite parfaitement centré */
+.nav-cta-wrapper {
+    margin-left: auto !important;
+    align-self: center !important;
+}
+
+/* bouton burger centré en hauteur */
+nav.navbar .mobile-menu-btn {
+    display: none;
+    height: 100% !important;
+    align-items: center !important;
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --nav-h: 64px;
+    }
+
+    /* hauteur de barre un poil plus basse en mobile */
+    nav.navbar .nav-menu {
+        display: none !important;
+    }
+
+    nav.navbar .mobile-menu-btn {
+        display: flex !important;
+    }
+}
+
+/* s’assure que le mega menu démarre pile sous l’onglet */
+.mega-bridge {
+    position: relative;
+}
+
+.mega-bridge>.nav-link {
+    position: relative;
+    z-index: 1;
+}
+
+.mega-bridge .mega-menu {
+    top: 100% !important;
+    left: 0;
+}
+
+/* ============== NAVBAR CLEAN PATCH (centrage + transparence) ============== */
+#navbar {
+    --nav-h: 72px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    /* transparence par défaut */
+    border-bottom: none;
+    box-shadow: none;
+    transition: background .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+#navbar .nav-container {
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    /* centrage vertical */
+    gap: 24px;
+    padding: 0 20px;
+    /* ajuste si besoin */
+    box-sizing: border-box;
+}
+
+#navbar .logo,
+#navbar .nav-menu,
+#navbar .nav-cta-wrapper {
+    display: flex;
+    align-items: center;
+    /* centrage vertical */
+}
+
+#navbar .nav-menu {
+    gap: 18px;
+}
+
+#navbar .nav-link {
+    display: flex;
+    align-items: center;
+    /* centrage vertical */
+    height: 44px;
+    /* confortable au clic */
+    padding: 0 .75rem;
+    line-height: 1;
+    margin: 0;
+}
+
+#navbar .nav-link.cta {
+    height: auto;
+    line-height: 1;
+    padding: .7rem 1.1rem;
+    border-radius: 999px;
+}
+
+#navbar .nav-cta-wrapper {
+    margin-left: auto;
+}
+
+/* Transparent (top) — textes clairs */
+#navbar:not(.scrolled) .logo {
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .25);
+    -webkit-text-fill-color: white;
+}
+
+#navbar:not(.scrolled) .nav-link:not(.cta) {
+    color: rgba(255, 255, 255, .9);
+    text-shadow: 0 1px 5px rgba(0, 0, 0, .2);
+}
+
+/* Scrolled (fond selon thème) */
+#navbar.scrolled {
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+}
+
+#navbar.scrolled {
+    background: rgba(255, 255, 255, .98);
+    border-bottom: 1px solid rgba(55, 0, 173, .1);
+}
+
+[data-theme="dark"] #navbar.scrolled {
+    background: rgba(15, 15, 15, .98);
+    border-bottom: 1px solid rgba(55, 0, 173, .3);
+}
+
+/* Couleur des liens en mode scrolled */
+#navbar.scrolled .nav-link:not(.cta) {
+    color: #1a1a1a;
+}
+
+[data-theme="dark"] #navbar.scrolled .nav-link:not(.cta) {
+    color: #fff;
+}
+
+/* Mega menu attaché sous “Services” */
+#navbar .mega-bridge {
+    position: relative;
+}
+
+#navbar .mega-bridge .mega-menu {
+    top: 100%;
+    left: 0;
+}
+
+/* Burger + responsive */
+#navbar .mobile-menu-btn {
+    display: none;
+    height: var(--nav-h);
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    #navbar {
+        --nav-h: 64px;
+    }
+
+    #navbar .nav-menu {
+        display: none;
+    }
+
+    #navbar .mobile-menu-btn {
+        display: flex;
+    }
+}
+
+/* Empêche des vieilles règles de déplacer verticalement */
+#navbar .nav-item,
+#navbar .nav-link {
+    top: auto !important;
+    transform: none !important;
+}
+
+/* ===== NAVBAR VERTICAL MICRO-FIX (placer tout en bas du fichier) ===== */
+
+/* pas d'espace interne qui décale le contenu */
+#navbar,
+.navbar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* layout fiable : 3 colonnes (logo | menu | CTA) parfaitement centrées */
+#navbar .nav-container {
+    height: 68px;
+    /* ajuste à 64/72 si tu préfères */
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    /* centrage vertical garanti */
+    padding: 0 20px !important;
+    box-sizing: border-box;
+}
+
+/* chaque bloc est centré dans la hauteur */
+#navbar .logo,
+#navbar .nav-menu,
+#navbar .nav-cta-wrapper {
+    align-self: center;
+}
+
+/* items du menu = inline-flex pour aligner l’icône/texte au milieu */
+#navbar .nav-item {
+    display: flex;
+    align-items: center;
+}
+
+#navbar .nav-link,
+#navbar .logo {
+    display: inline-flex;
+    align-items: center;
+    /* cœur du centrage */
+    height: 40px;
+    /* zone cliquable confortable */
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 .75rem !important;
+}
+
+/* bouton CTA : même hauteur visuelle */
+#navbar .nav-link.cta {
+    height: 40px;
+    padding: 0 16px !important;
+    border-radius: 999px;
+}
+
+/* espaces entre liens */
+#navbar .nav-menu {
+    display: flex;
+    gap: 18px;
+}
+
+/* annule toute vieille règle qui poussait vers le bas */
+#navbar .nav-item,
+#navbar .nav-link {
+    top: auto !important;
+    transform: none !important;
+}
+
+/* --- (optionnel) micro-ajustement optique Mac : remonte de 1px
+   dé-commente si tu vois encore 1px de drift visuel. */
+/*
+#navbar .logo,
+#navbar .nav-menu,
+#navbar .nav-cta-wrapper { transform: translateY(-1px) !important; }
+*/
+
+/* --- Mega menu: visible, au-dessus, non coupé --- */
+#navbar,
+#navbar .nav-container {
+    overflow: visible !important;
+}
+
+/* évite le clipping */
+#navbar .nav-container {
+    position: relative;
+}
+
+/* ancre pour l'absolu */
+
+.nav-item.mega-bridge {
+    position: relative;
+}
+
+.mega-bridge .mega-menu {
+    /* position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translate(-50%, -4px);
+    min-width: 720px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+    z-index: 1100; */
+}
+
+/* états ouverts */
+.mega-bridge:hover .mega-menu,
+.mega-bridge:focus-within .mega-menu,
+.mega-bridge.open .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s;
+}
+
+/* Sur petits écrans, on masque la version “drop” (on gère un accordéon côté JS) */
+@media (max-width: 1024px) {
+    .mega-bridge .mega-menu {
+        display: none !important;
+    }
+}
+
+/* Empêche le clipping du mega-menu par la navbar */
+#navbar,
+#navbar .nav-container {
+    overflow: visible !important;
+}
+
+#navbar .nav-container {
+    position: relative;
+    /* ancre pour l'absolu */
+    z-index: 30;
+}
+
+/* Mega menu positionné proprement sous "Services" */
+.nav-item.mega-bridge {
+    position: relative;
+}
+
+.nav-item.mega-bridge .mega-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    min-width: 720px;
+    background: var(--surface, #151515);
+    border-radius: 16px;
+    padding: 16px 18px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, .22);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+    z-index: 1100;
+}
+
+/* États ouverts (hover/focus ou classe .open posée par JS) */
+.nav-item.mega-bridge:hover .mega-menu,
+.nav-item.mega-bridge:focus-within .mega-menu,
+.nav-item.mega-bridge.open .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s;
+}
+
+/* En mobile, on masque la version "drop" (le lien scroll vers #services) */
+@media (max-width: 1024px) {
+    .nav-item.mega-bridge .mega-menu {
+        display: none !important;
+    }
+}
+
+/* === Mega menu visible et non coupé === */
+.navbar,
+.navbar .nav-container {
+    overflow: visible !important;
+}
+
+.navbar .nav-container {
+    position: relative;
+    z-index: 1100;
+}
+
+.nav-item.mega-bridge {
+    position: relative;
+}
+
+.nav-item.mega-bridge>.mega-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    min-width: 720px;
+    /* ajuste si besoin */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+}
+
+/* états ouverts (hover/focus/clic) */
+.nav-item.mega-bridge:hover>.mega-menu,
+.nav-item.mega-bridge:focus-within>.mega-menu,
+.nav-item.mega-bridge.open>.mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s;
+}
+
+/* Mobile : on ne montre pas la version "drop", on gère un accordéon JS */
+@media (max-width: 1024px) {
+    .nav-item.mega-bridge>.mega-menu {
+        display: none !important;
+    }
+}
+
+/* Petites finitions pour la sous-liste mobile clonée */
+#mobileMenu .mobile-sub {
+    margin: 8px 0 0 12px;
+    padding: 6px 0 6px 12px;
+    border-left: 1px solid rgba(0, 0, 0, .08);
+    overflow: hidden;
+    max-height: 0;
+    /* animé en JS */
+    transition: max-height .25s ease;
+}
+
+[data-theme="dark"] #mobileMenu .mobile-sub {
+    border-left: 1px solid rgba(255, 255, 255, .08);
+}
+
+#mobileMenu .mobile-sub a {
+    display: block;
+    padding: 10px 0;
+}
+
+/* --- Mobile drawer: inert when hidden --- */
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    height: 100dvh;
+    background: rgba(12, 12, 14, .96);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform .28s ease, opacity .28s ease;
+    z-index: 999;
+    pointer-events: none;
+    /* <-- no click stealing while hidden */
+}
+
+.mobile-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    /* clickable only when open */
+}
+
+/* prevent body scroll only when drawer open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Desktop guard: drawer/hamburger never shown at ≥ 992px */
+@media (min-width: 992px) {
+    .mobile-menu {
+        display: none !important;
+    }
+
+    .mobile-menu-btn {
+        display: none !important;
+    }
+
+    body.menu-open {
+        overflow: auto !important;
+    }
+}
+
+/* --- Mega menu: visible, au-dessus, non coupé --- */
+#navbar,
+#navbar .nav-container {
+    overflow: visible !important;
+}
+
+/* évite le clipping */
+#navbar .nav-container {
+    position: relative;
+}
+
+/* ancre pour l'absolu */
+
+.nav-item.mega-bridge {
+    position: relative;
+}
+
+/* .mega-bridge .mega-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translate(-50%, -4px);
+    min-width: 720px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+    z-index: 1100;
+} */
+
+/* états ouverts */
+.mega-bridge:hover .mega-menu,
+.mega-bridge:focus-within .mega-menu,
+.mega-bridge.open .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s;
+}
+
+/* Sur petits écrans, on masque la version “drop” (on gère un accordéon côté JS) */
+@media (max-width: 1024px) {
+    .mega-bridge .mega-menu {
+        display: none !important;
+    }
+}
+
+/* Mega menu : pas de clipping */
+#navbar,
+#navbar .nav-container {
+    overflow: visible !important;
+}
+
+#navbar .nav-container {
+    position: relative;
+}
+
+.nav-item.mega-bridge {
+    position: relative;
+}
+
+/* Panneau */
+/* .mega-bridge .mega-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    transform: translateY(-4px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+    z-index: 1100;
+    width: auto;
+    max-width: min(920px, calc(100vw - 32px));
+} */
+
+/* Ouvert */
+.mega-bridge:hover .mega-menu,
+.mega-bridge:focus-within .mega-menu,
+.mega-bridge.open .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s;
+}
+
+/* Caret (petit triangle) centré par variable --caret-x */
+.mega-bridge .mega-menu::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: var(--caret-x, 50%);
+    width: 16px;
+    height: 16px;
+    transform: translateX(-50%) rotate(45deg);
+    background: inherit;
+    /* même fond que le panneau */
+    border-radius: 3px;
+}
+
+/* En mobile, on cache la version "drop" (accordéon géré côté JS) */
+@media (max-width:1024px) {
+    .mega-bridge .mega-menu {
+        display: none !important;
+    }
+}
+
+/* === Mega menu visible au-dessus de la navbar ========================== */
+#navbar,
+#navbar .nav-container,
+#navbar .nav-menu,
+#navbar .nav-item {
+    overflow: visible !important;
+}
+
+#navbar {
+    z-index: 2000;
+}
+
+.nav-item.mega-bridge {
+    position: relative;
+}
+
+/* bloc déroulant */
+/* .mega-bridge .mega-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translate(-50%, -4px);
+    min-width: 720px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+    z-index: 3000;
+} */
+
+/* états ouverts (hover/focus/clic) */
+.mega-bridge:hover .mega-menu,
+.mega-bridge:focus-within .mega-menu,
+.mega-bridge.open .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s;
+}
+
+/* En mobile, on masque la version "drop" (on garde l’accordéon JS) */
+@media (max-width: 1024px) {
+    .mega-bridge .mega-menu {
+        display: none !important;
+    }
+}
+
+/* Le conteneur ne doit PAS clipper la mega-menu */
+#navbar,
+#navbar .nav-container {
+    overflow: visible !important;
+}
+
+#navbar .nav-container {
+    position: relative;
+}
+
+.nav-item.mega-bridge {
+    position: relative;
+}
+
+/* Panneau */
+.mega-bridge .mega-menu {
+    /* position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translate(-50%, -4px);
+    min-width: 720px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+    z-index: 1100;
+    will-change: opacity, transform; */
+}
+
+/* État ouvert (via :hover, :focus-within ou classe .open posée par JS) */
+.mega-bridge:hover .mega-menu,
+.mega-bridge:focus-within .mega-menu,
+.mega-bridge.open .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s;
+}
+
+/* Hover-bridge : élimine le “trou” entre le lien et le panneau */
+.mega-bridge::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    /* largeur tampon */
+    height: 12px;
+    /* hauteur tampon */
+    pointer-events: auto;
+}
+
+/* Mobile : on ne rend pas la mega-menu flottee (accordéon mobile géré côté JS) */
+@media (max-width:1024px) {
+    .mega-bridge .mega-menu {
+        display: none !important;
+    }
+}
+
+/* ==== Mega menu : tokens thème (clair/sombre) ==== */
+:root {
+    --mm-bg: #ffffff;
+    --mm-fg: #1a1a1a;
+    --mm-bdr: rgba(0, 0, 0, .08);
+    --mm-shadow: 0 24px 50px rgba(0, 0, 0, .12), 0 2px 8px rgba(0, 0, 0, .06);
+}
+
+[data-theme="dark"] {
+    --mm-bg: #141414;
+    --mm-fg: #f3f3f3;
+    --mm-bdr: rgba(255, 255, 255, .12);
+    --mm-shadow: 0 24px 50px rgba(0, 0, 0, .7), 0 2px 8px rgba(0, 0, 0, .45);
+}
+
+/* Laisse le menu sortir de la barre (sinon il est coupé) */
+#navbar,
+#navbar .nav-container {
+    overflow: visible !important;
+}
+
+#navbar .nav-container {
+    position: relative;
+}
+
+.nav-item.mega-bridge {
+    position: relative;
+}
+
+/* Panneau du méga-menu (desktop) */
+.nav-item.mega-bridge .mega-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translate(-50%, -4px);
+    min-width: 720px;
+    background: var(--mm-bg) !important;
+    color: var(--mm-fg) !important;
+    border: 1px solid var(--mm-bdr) !important;
+    box-shadow: var(--mm-shadow) !important;
+    border-radius: 14px;
+    padding: 18px 20px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+    z-index: 1100;
+}
+
+.nav-item.mega-bridge .mega-menu .mega-menu-item,
+.nav-item.mega-bridge .mega-menu .mega-menu-title,
+.nav-item.mega-bridge .mega-menu .mega-menu-desc {
+    color: var(--mm-fg) !important;
+}
+
+/* états ouverts */
+.nav-item.mega-bridge:hover .mega-menu,
+.nav-item.mega-bridge:focus-within .mega-menu,
+.nav-item.mega-bridge.open .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s;
+}
+
+/* Sur petits écrans : on n’affiche pas le panneau flottant (on gère un accordéon mobile) */
+@media (max-width: 1024px) {
+    .nav-item.mega-bridge .mega-menu {
+        display: none !important;
+    }
+}
+
+/* ===== Accordéon Services dans le menu mobile ===== */
+#mobileMenu .mobile-sub {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .22s ease;
+    margin: 6px 14px 0 14px;
+    border-left: 2px solid var(--mm-bdr);
+}
+
+#mobileMenu .mobile-sub.open {
+    max-height: 420px;
+}
+
+#mobileMenu .mobile-sub a {
+    display: block;
+    padding: 10px 12px 10px 18px;
+    color: inherit;
+    opacity: .9;
+}
+
+#mobileMenu .mobile-sub a:hover {
+    opacity: 1;
+}
+
+/* Le LI "Services" sert d'ancre */
+.nav-item.mega-bridge {
+    position: relative;
+}
+
+/* Mega menu centré sous le lien "Services" */
+.mega-bridge .mega-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56rem;
+    max-width: min(92vw, 960px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+    z-index: 1100;
+}
+
+/* Ouverture (hover/focus/clic géré en JS) */
+.nav-item.mega-bridge:hover .mega-menu,
+.nav-item.mega-bridge:focus-within .mega-menu,
+.nav-item.mega-bridge.open .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Petit losange/triangle centré sous "Services" */
+.mega-bridge .mega-menu::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    transform: translateX(-50%) rotate(45deg);
+    background: inherit;
+    /* même fond que la carte */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+    border-radius: 2px;
+}
+
+/* Évite que la barre coupe le menu */
+#navbar,
+#navbar .nav-container {
+    overflow: visible !important;
+}
+
+/* En mobile on ne l’affiche pas (on garde l’accordéon) */
+@media (max-width: 1024px) {
+    .mega-bridge .mega-menu {
+        display: none !important;
+    }
+}
+
+/* CSS SECTION : POURQUOI AVOIR UN SITE ? */
+/* ====== WHY SECTION (Artificio) ====== */
+.why-section {
+    position: relative;
+    padding: 70px 20px;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* halo background */
+.why-section::before {
+    content: "";
+    position: absolute;
+    inset: -200px;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(106, 0, 255, .12), transparent 45%),
+        radial-gradient(circle at 80% 30%, rgba(255, 94, 168, .12), transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(106, 0, 255, .08), transparent 50%);
+    pointer-events: none;
+}
+
+.why-header {
+    text-align: center;
+    max-width: 920px;
+    margin: 0 auto 70px;
+    position: relative;
+}
+
+.why-title {
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+    color: #2a1b3d;
+}
+
+.why-highlight {
+    background: linear-gradient(90deg, #6a00ff, #ff5ea8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.why-subtitle {
+    margin: 0 auto;
+    max-width: 760px;
+    color: rgba(0, 0, 0, .60);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.why-layout {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 56px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.why-col {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.why-card {
+    position: relative;
+    padding: 26px 26px 32px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, .85);
+    border: 1px solid rgba(106, 0, 255, .10);
+    box-shadow: 0 18px 55px rgba(0, 0, 0, .08);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+/* subtle gradient border glow */
+.why-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, rgba(106, 0, 255, .55), rgba(255, 94, 168, .55));
+    opacity: .18;
+    filter: blur(16px);
+    pointer-events: none;
+}
+
+.why-card h3 {
+    margin: 12px 0 10px;
+    font-size: 1.18rem;
+    letter-spacing: -0.01em;
+    color: #2a1b3d;
+}
+
+.why-card p {
+    margin: 0;
+    color: rgba(0, 0, 0, .62);
+    line-height: 1.65;
+}
+
+.why-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, rgba(106, 0, 255, .14), rgba(255, 94, 168, .14));
+    border: 1px solid rgba(106, 0, 255, .12);
+    font-size: 18px;
+}
+
+.why-index {
+    position: absolute;
+    right: 18px;
+    bottom: 0px;
+    font-size: 3.1rem;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    color: rgba(255, 94, 168, .18);
+}
+
+/* Hover premium */
+@media (hover:hover) {
+    .why-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, .12);
+    }
+}
+
+/* center visual */
+.why-visual {
+    position: relative;
+    width: 320px;
+    max-width: 36vw;
+    display: grid;
+    place-items: center;
+}
+
+.why-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 2;
+    filter: drop-shadow(0 22px 40px rgba(0, 0, 0, .18));
+}
+
+.why-orb {
+    position: absolute;
+    inset: 8%;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, .55), rgba(255, 255, 255, .08));
+    border: 1px solid rgba(255, 255, 255, .35);
+    box-shadow: 0 30px 90px rgba(106, 0, 255, .18);
+    z-index: 1;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+    .why-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 34px;
+    }
+
+    .why-visual {
+        grid-column: 1 / -1;
+        width: min(340px, 70vw);
+        margin: 14px auto 10px;
+    }
+}
+
+@media (max-width: 640px) {
+    .why-section {
+        padding: 90px 16px;
+    }
+
+    .why-layout {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .why-visual {
+        order: -1;
+        /* visuel en haut en mobile (storytelling) */
+        width: min(320px, 84vw);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .7s ease, transform .7s ease;
+    transition-delay: var(--d, 0ms);
+}
+
+.reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   WHY SECTION — DARK MODE
+   ========================= */
+
+[data-theme="dark"] .why-section {
+    background: #0b0b12;
+}
+
+/* halo plus discret en dark */
+[data-theme="dark"] .why-section::before {
+    opacity: 0.45;
+}
+
+[data-theme="dark"] .why-title {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .why-subtitle {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* Cards */
+[data-theme="dark"] .why-card {
+    /* background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45); */
+
+    border: 1px solid rgba(55, 0, 173, 0.4) !important;
+    color: #ffffff !important;
+    background: rgba(20, 20, 24, .88);
+    background-image: linear-gradient(rgba(20, 20, 24, .88), rgba(20, 20, 24, .88)), linear-gradient(135deg, rgba(106, 0, 255, .55), rgba(255, 94, 168, .45));
+}
+
+[data-theme="dark"] .why-card h3 {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .why-card p {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Icône */
+[data-theme="dark"] .why-icon {
+    background: linear-gradient(135deg,
+            rgba(106, 0, 255, 0.18),
+            rgba(255, 94, 168, 0.18));
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* Index (01, 02…) */
+[data-theme="dark"] .why-index {
+    color: rgba(255, 94, 168, 0.22);
+}
+
+/* Orbe centrale */
+[data-theme="dark"] .why-orb {
+    background: radial-gradient(circle at 30% 20%,
+            rgba(255, 255, 255, 0.18),
+            rgba(255, 255, 255, 0.04));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 30px 100px rgba(106, 0, 255, 0.22);
+}
+
+/* CTA — applique le noir global en dark */
+[data-theme="dark"] .cta-section {
+    background: var(--dark-bg-main) !important;
+}
+
+/* =========================
+   NAVBAR — DARK MODE
+   ========================= */
+
+:root {
+    --nav-bg-dark: var(--dark-bg-main);
+    --nav-border-dark: rgba(255, 255, 255, 0.08);
+    --nav-text-dark: rgba(255, 255, 255, 0.92);
+    --nav-muted-dark: rgba(255, 255, 255, 0.70);
+    --nav-panel-dark: #111118;
+    /* mega-menu + mobile */
+}
+
+/* Navbar fond = noir référence */
+[data-theme="dark"] .navbar {
+    background: var(--nav-bg-dark) !important;
+    border-bottom: 1px solid var(--nav-border-dark);
+}
+
+/* Si tu as une classe ajoutée au scroll */
+[data-theme="dark"] .navbar.scrolled {
+    background: var(--nav-bg-dark) !important;
+}
+
+/* Liens */
+[data-theme="dark"] .navbar .nav-link,
+[data-theme="dark"] .navbar .logo {
+    color: var(--nav-text-dark) !important;
+}
+
+/* Hover */
+[data-theme="dark"] .navbar .nav-link:hover {
+    color: #ffffff !important;
+}
+
+/* CTA (si besoin de contraste) */
+[data-theme="dark"] .navbar .nav-link.cta {
+    color: #fff !important;
+}
+
+/* Mega-menu panel */
+[data-theme="dark"] .navbar .mega-menu {
+    background: var(--nav-panel-dark) !important;
+    border: 1px solid var(--nav-border-dark);
+}
+
+/* Mega menu items */
+[data-theme="dark"] .navbar .mega-menu-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--nav-text-dark);
+}
+
+[data-theme="dark"] .navbar .mega-menu-title {
+    color: var(--nav-text-dark);
+}
+
+[data-theme="dark"] .navbar .mega-menu-desc {
+    color: var(--nav-muted-dark);
+}
+
+/* Mobile menu panel */
+[data-theme="dark"] .navbar .mobile-menu {
+    background: var(--nav-panel-dark) !important;
+    border-top: 1px solid var(--nav-border-dark);
+}
+
+[data-theme="dark"] .navbar .mobile-menu-link,
+[data-theme="dark"] .navbar .mobile-sub-link {
+    color: var(--nav-text-dark) !important;
+}
+
+/* Burger */
+[data-theme="dark"] .navbar .mobile-menu-btn span {
+    background: var(--nav-text-dark) !important;
+}
+
+/* =========================
+   NAVBAR — transparent top / dark on scroll
+   ========================= */
+
+/* état par défaut (tout en haut) */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+
+    background: transparent;
+    border-bottom: 1px solid transparent;
+
+    transition: background-color .25s ease, backdrop-filter .25s ease, border-color .25s ease;
+}
+
+/* LIGHT: au scroll */
+[data-theme="light"] .navbar.scrolled,
+html:not([data-theme="dark"]) .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* DARK: au scroll */
+[data-theme="dark"] .navbar.scrolled {
+    background: rgba(11, 11, 18, 0.86);
+    /* ton noir référence #0b0b12 en version alpha */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Couleurs des liens en dark (utile si transparent au top) */
+[data-theme="dark"] .navbar .nav-link,
+[data-theme="dark"] .navbar .logo {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* =========================================================
+   NAVBAR — FINAL (transparent top, solid on scroll) + themes
+   This block should be the last navbar rules in the file.
+   ========================================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    backdrop-filter: none;
+
+    transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease, backdrop-filter .25s ease;
+}
+
+/* top of page readability (hero behind navbar) */
+.navbar:not(.scrolled) .nav-link,
+.navbar:not(.scrolled) .logo {
+    color: #fff;
+}
+
+/* burger icon on transparent */
+.navbar:not(.scrolled) .mobile-menu-btn span {
+    background: #fff;
+}
+
+/* LIGHT on scroll */
+html:not([data-theme="dark"]) .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--box-shadow);
+    border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+html:not([data-theme="dark"]) .navbar.scrolled .nav-link {
+    color: var(--text-dark);
+}
+
+/* DARK on scroll */
+[data-theme="dark"] .navbar.scrolled {
+    background: rgba(11, 11, 18, 0.88);
+    /* --dark-bg-main with alpha */
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .navbar.scrolled .nav-link,
+[data-theme="dark"] .navbar.scrolled .logo {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* Mobile menu panel in dark (uses menu vars) */
+[data-theme="dark"] .mobile-menu {
+    background: var(--menu-bg);
+    border-top: 1px solid var(--menu-divider);
+    backdrop-filter: blur(20px);
+}
+
+[data-theme="dark"] .mobile-menu-link,
+[data-theme="dark"] .mobile-sub-link {
+    color: var(--menu-text);
+}
+
+[data-theme="dark"] .mobile-menu-item {
+    border-bottom: 1px solid var(--menu-divider);
+}
+
+/* Uniformiser le noir (screen 2 => même noir que screen 1) */
+[data-theme="dark"] .why-section {
+    background: var(--dark-bg-main) !important;
+}
+
+/* Si la section a un halo/overlay qui teinte le noir */
+[data-theme="dark"] .why-section::before,
+[data-theme="dark"] .why-section::after {
+    opacity: 0 !important;
+    background: none !important;
+}
+
+/* ===== NAVBAR TOP (pas scrolled) => TOUJOURS TRANSPARENTE ===== */
+[data-theme="dark"] .navbar:not(.scrolled),
+[data-theme="light"] .navbar:not(.scrolled) {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border-bottom-color: transparent !important;
+}
+
+/* ===== NAVBAR SCROLLED ===== */
+[data-theme="dark"] .navbar.scrolled {
+    background: rgba(11, 11, 18, 0.88) !important;
+    /* #0b0b12 */
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html:not([data-theme="dark"]) .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: var(--box-shadow) !important;
+    border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* =========================
+   FOOTER – DARK MODE FIX
+========================= */
+
+[data-theme="dark"] footer,
+[data-theme="dark"] .footer {
+    background: radial-gradient(1200px circle at 50% 0%,
+            rgba(120, 0, 255, 0.12),
+            transparent 60%),
+        linear-gradient(180deg,
+            #0b0b12 0%,
+            #08080d 100%);
+    color: #e6e6eb;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .footer p,
+[data-theme="dark"] .footer li,
+[data-theme="dark"] .footer a {
+    color: rgba(230, 230, 235, 0.85);
+}
+
+[data-theme="dark"] .footer a:hover {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .footer-bottom,
+[data-theme="dark"] .footer-divider {
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* =========================
+      THEMES (Flip Cards)
+    ========================= */
+
+.themes-section {
+    padding: 90px 0;
+    /* background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%); */
+
+}
+
+.themes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    margin-top: 34px;
+}
+
+@media (max-width: 1024px) {
+    .themes-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .themes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.theme-card {
+    /* perspective: 180px;
+      max-width: 340px; 
+      border-radius: 18px;
+      outline: none;*/
+
+    width: 100%;
+    max-width: 340px;
+    height: 180px;
+    /* fixe => plus de jump */
+    margin: 0 auto;
+    perspective: 1000px;
+    border-radius: 18px;
+    outline: none;
+}
+
+.theme-card-inner {
+    /* position: relative;
+      height: 220px;
+      border-radius: 22px;
+      transform-style: preserve-3d;
+      transition: transform 700ms cubic-bezier(.2,.8,.2,1); */
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(.2, .8, .2, 1);
+}
+
+/* Flip hover desktop + focus clavier + mode JS (class is-flipped) */
+.theme-card:hover .theme-card-inner,
+.theme-card:focus-within .theme-card-inner,
+.theme-card.is-flipped .theme-card-inner {
+    transform: rotateY(180deg);
+}
+
+.theme-face {
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Front */
+.theme-front {
+    /* background: linear-gradient(135deg, rgba(120, 0, 255, 0.22), rgba(255, 80, 170, 0.18)); */
+    background: linear-gradient(90deg, #3700AD 0%, #E66C9C 100%);
+    border: 1px solid inear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+    padding: 22px;
+}
+
+/* Back */
+.theme-back {
+    transform: rotateY(180deg);
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(180, 80, 255, 0.18);
+    padding: 22px;
+}
+
+.theme-card-front,
+.theme-card-back {
+    position: absolute;
+    inset: 0;
+    /* top/right/bottom/left:0 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .12);
+}
+
+.theme-title {
+    font-size: 1.35rem;
+    /* font-weight: 800; */
+    letter-spacing: -0.02em;
+    color: #ffffff;
+}
+
+.theme-desc {
+    max-width: 34ch;
+    color: rgba(20, 20, 25, 0.75);
+    line-height: 1.5;
+    font-size: 0.98rem;
+}
+
+/* CTA arrow button */
+.theme-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    background: linear-gradient(135deg, rgba(120, 0, 255, 0.95), rgba(255, 80, 170, 0.9));
+    color: #fff;
+    box-shadow: 0 12px 26px rgba(120, 0, 255, 0.18);
+    transition: transform .2s ease, filter .2s ease;
+}
+
+.theme-cta:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+}
+
+.theme-arrow {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+/* Dark mode */
+[data-theme="dark"] .theme-back {
+    background: rgba(11, 11, 18, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .theme-desc {
+    color: rgba(230, 230, 235, 0.78);
+}
+
+/* [data-theme="dark"] .theme-front{
+      border: 1px solid rgba(255,255,255,0.08);
+    } */
+
+/* ========= MOBILE HERO FULL SCREEN ========= */
+@media (max-width: 768px) {
+
+    /* Ajuste si ta navbar est plus grande/petite */
+    :root {
+        --nav-h: 72px;
+    }
+
+    .hero {
+        /* Plein écran en mobile */
+        min-height: 100svh;
+        /* mieux que 100vh sur mobile (barres du navigateur) */
+        display: flex;
+        align-items: center;
+
+        /* On évite que le contenu passe sous la navbar */
+        padding-top: calc(var(--nav-h) + 10px);
+        padding-bottom: 90px;
+        /* espace pour la flèche en bas */
+        overflow: hidden;
+    }
+
+    /* Container centré et plus “mobile-friendly” */
+    .hero-container {
+        width: 100%;
+        padding: 0 18px;
+        gap: 18px;
+    }
+
+    /* Souvent en mobile : texte puis visuel en dessous (si tu veux) */
+    .hero-content {
+        text-align: left;
+    }
+
+    /* Option : réduire un peu le visuel pour éviter qu'il “mange” l’écran */
+    .hero-visual {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* .hero-image {
+        width: min(78vw, 320px);
+        height: auto;
+    } */
+
+    @media (max-width: 768px) {
+        .scroll-indicator-fleche {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 22px;
+            z-index: 5;
+            opacity: 0.95;
+        }
+    }
+}
+
+/* =========================
+   Wizard Modal (Popup)
+========================= */
+.wizard-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: none;
+}
+
+.wizard-modal.is-open {
+    display: block;
+}
+
+.wizard-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    backdrop-filter: blur(10px);
+}
+
+.wizard-dialog {
+    position: relative;
+    width: min(920px, calc(100% - 32px));
+    max-height: calc(100vh - 64px);
+    overflow: auto;
+
+    margin: 32px auto;
+    border-radius: 24px;
+
+    background: rgba(20, 20, 28, 0.88);
+    border: 1px solid rgba(230, 108, 156, .18);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .55);
+
+    transform: translateY(12px);
+    opacity: 0;
+    transition: .25s ease;
+}
+
+.wizard-modal.is-open .wizard-dialog {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.wizard-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    background: rgba(255, 255, 255, .06);
+    color: #fff;
+    cursor: pointer;
+}
+
+.wizard-header {
+    padding: 28px 28px 0 28px;
+}
+
+.wizard-header h2 {
+    margin: 0;
+    color: #fff;
+    letter-spacing: .5px;
+}
+
+.wizard-header p {
+    margin: 8px 0 0 0;
+    color: rgba(255, 255, 255, .78);
+}
+
+.wizard-body {
+    padding: 22px 28px 28px 28px;
+}
+
+/* Light mode (si tu as data-theme="light") */
+[data-theme="light"] .wizard-dialog {
+    background: rgba(255, 255, 255, .88);
+    border: 1px solid rgba(55, 0, 173, .12);
+}
+
+[data-theme="light"] .wizard-header h2 {
+    color: #111;
+}
+
+[data-theme="light"] .wizard-header p {
+    color: rgba(17, 17, 17, .7);
+}
+
+[data-theme="light"] .wizard-close {
+    color: #111;
+}
+
+/* =========================
+   Scrollbar du modal (Wizard)
+========================= */
+
+/* Firefox */
+.wizard-dialog {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(230, 108, 156, .55) rgba(255, 255, 255, .06);
+}
+
+/* Chrome / Edge / Safari */
+.wizard-dialog::-webkit-scrollbar {
+    width: 10px;
+}
+
+.wizard-dialog::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, .06);
+    border-radius: 999px;
+    margin: 14px 0;
+    /* respire en haut/bas */
+}
+
+.wizard-dialog::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(55, 0, 173, .85), rgba(230, 108, 156, .85));
+    border: 2px solid rgba(255, 255, 255, .08);
+    /* effet "inset" clean */
+}
+
+.wizard-dialog::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(55, 0, 173, 1), rgba(230, 108, 156, 1));
+}
+
+/* Optionnel : retire les flèches (si présentes) */
+.wizard-dialog::-webkit-scrollbar-button {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .wizard-dialog::-webkit-scrollbar {
+        width: 7px;
+    }
 }

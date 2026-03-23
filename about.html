@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificio - L'art de transformer l'ordinaire en expériences d'exception</title>
+    <meta name="description" content="Agence digitale complète spécialisée en brand content, stratégie digitale, développement web et marketing digital. Transformons vos idées en expériences d'exception.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/about2.css">
+
+     <!-- Ajoutez dans le <head> -->
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+</head>
+<body>
+    <div class="scroll-indicator"></div>
+
+    <button id="backToTop" aria-label="Retour en haut">
+        ⬆
+    </button>
+    
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+        <span class="icon">🌙</span>
+    </button>
+    
+    <!-- NAVBAR -->
+    <div id="site-navbar"></div>
+
+    <!-- HERO SECTION -->
+    <header class="hero hero-about" id="accueil">
+        <div class="custom-cursor"></div>
+        <div class="hero-orbs" aria-hidden="true">
+            <div class="orb"></div><div class="orb"></div><div class="orb"></div><div class="orb"></div><div class="orb"></div>
+        </div>
+        <div class="hero-particles" aria-hidden="true">
+            <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+            <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        </div>
+
+        <div class="hero-container hero-about-container">
+            <div class="hero-content">
+                <p class="kicker reveal">À propos de nous</p>
+                <h1 class="hero-title reveal">
+                    Nous transformons votre présence digitale en expériences qui marquent.
+                </h1>
+                <p class="hero-subtitle reveal">
+                    <!-- TODO: texte intro -->
+                    Artificio accompagne les marques à chaque étape : stratégie, création, design et développement web.
+                </p>
+                <div class="hero-cta reveal">
+                    <a href="#contact" class="btn btn-primary" data-open-wizard>🚀 Démarrer mon projet</a>
+                    <a href="#histoire" class="btn btn-secondary">📌 Découvrir notre histoire</a>
+                </div>
+            </div>
+            <div class="hero-visual reveal" aria-hidden="true">
+                <div class="hero-shape">
+                    <img src="../images/Origami bird-pana.png" alt="" class="hero-image" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator (bouton) -->
+        <button class="scroll-indicator-fleche" type="button" aria-label="Aller à la section suivante" data-scroll-target="#why">
+            <span class="scroll-arrow" aria-hidden="true"></span>
+        </button>
+    </header>
+
+
+    <section id="why" class="why-section" style="border: 1px solid var(--card-border);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="why-title">À Propos <span class="why-highlight">d'ARTIFICIO</span></h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p style="font-size: 23px;">
+                        <span class="about-highlight">Artificio</span> est une agence digitale née d’une conviction simple : aujourd’hui, créer du contenu ne suffit plus.
+
+                        Dans un écosystème saturé, seules les marques capables de raconter une histoire claire, cohérente et alignée avec leur identité parviennent à émerger durablement.
+
+                        Chez Artificio, nous concevons des expériences digitales pensées pour durer, en plaçant le sens, la stratégie et l’humain au cœur de chaque projet. 
+
+                        
+                    </p>
+                </div>
+                <div class="about-visual fade-in">
+                    <img src="images/About us page-pana.png" alt="À propos d'Artificio" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="why-title">Les valeurs qui <span class="why-highlight">nous définissent</span></h2>
+                <p class="why-subtitle">
+                    Ce qui guide chaque projet Artificio.
+                </p>
+            </div>
+
+            <div class="values-grid">
+                <article class="value-card reveal">
+                    <div class="value-icon">🎯</div>
+                    <h3>Exigence</h3>
+                    <p>Un niveau de finition premium, jusque dans les détails.</p>
+                </article>
+
+                <article class="value-card reveal">
+                    <div class="value-icon">⚡</div>
+                    <h3>Réactivité</h3>
+                    <p>Une communication fluide, des itérations rapides.</p>
+                </article>
+
+                <article class="value-card reveal">
+                    <div class="value-icon">✨</div>
+                    <h3>Créativité</h3>
+                    <p>Des idées qui servent l’objectif, jamais l’inverse.</p>
+                </article>
+
+                <article class="value-card reveal">
+                    <div class="value-icon">🤝</div>
+                    <h3>Transparence</h3>
+                    <p>Clarté sur les choix, les priorités et les résultats.</p>
+                </article>
+
+                <article class="value-card reveal">
+                    <div class="value-icon">📈</div>
+                    <h3>Performance</h3>
+                    <p>Design, SEO, conversion : tout est mesuré.</p>
+                </article>
+
+                <article class="value-card reveal">
+                    <div class="value-icon">🛡️</div>
+                    <h3>Fiabilité</h3>
+                    <p>Qualité technique, sécurité, maintenabilité.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-section approach-box">
+        <div class="approach-icon">
+            💡
+        </div>
+        <div class="approach-content">
+            <h3>Notre approche</h3>
+            <p>
+                Chez Artificio, chaque projet débute par une compréhension fine de votre marque,
+                de vos enjeux et de votre vision.
+            </p>
+            <p>
+                Nous privilégions une approche stratégique, créative et humaine, où le sens,
+                la cohérence et la performance guident chaque décision.
+            </p>
+            <p>
+                Plus qu’une simple production, nous concevons des expériences digitales durables,
+                pensées pour marquer et évoluer dans le temps.
+            </p>
+        </div>
+    </section>
+
+    <style>
+        .approach-box {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 24px;
+            border-radius: 24px;
+            border: 1.5px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+            max-width: 1100px;
+            margin-bottom: 80px;
+            margin-top: 0px auto;
+            margin-left: auto;
+            margin-right: auto;
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .approach-box::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            background: radial-gradient(
+                circle at top left,
+                rgba(122, 60, 255, 0.12),
+                transparent 60%
+        )};
+
+        /* Gradient border */
+        .approach-box::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+        }
+
+        .approach-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #6a00ff, #ff6fb1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #fff;
+        }
+
+        .approach-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-main);
+            background: linear-gradient(135deg, #6a00ff, #ff6fb1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .approach-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            /* color: #333; */
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .approach-box {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .approach-icon {
+                margin: 0 auto;
+            }
+        }
+    </style>
+
+    <section id="why" class="why-section" style="border: 1px solid var(--card-border);">
+        <div class="container">
+            <div class="why-header reveal">
+                <h2 class="why-title">
+                    Création de<span class="why-highlight"> site internet</span>
+                </h2>
+
+                <div class="about-text fade-in">
+                    <p style="font-size: 23px; text-align: justify;">
+                        Créer un site internet aujourd’hui demande bien plus que des compétences techniques. Sécurité, performance, SEO, architecture : chaque détail compte.
+                        <br>
+                        Chez <span class="about-highlight">Artificio</span>, nous allions expertise technologique et vision stratégique pour concevoir des sites performants, évolutifs et profondément alignés avec votre identité de marque.
+                        <br>
+                        WordPress, WooCommerce, PrestaShop ou développement sur mesure : nous choisissons les bonnes technologies pour servir un objectif clair — faire de votre site un véritable levier de croissance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="proof-grid">
+                <!-- Card 1 -->
+                <article class="value-card proof-card">
+                    <div class="proof-icon">👥</div>
+                    <h3 class="proof-title">Des projets choisis avec soin</h3>
+                    <p class="proof-text">Startups, PME & marques ambitieuses : on privilégie l’impact plutôt que le volume.</p>
+                    <span class="proof-tag">Partenariat</span>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="proof-card">
+                    <div class="proof-icon">🧩</div>
+                    <h3 class="proof-title">Une approche sur-mesure</h3>
+                    <p class="proof-text">Chaque solution part de vos objectifs, de vos utilisateurs et de votre contexte.</p>
+                    <span class="proof-tag">Méthode</span>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="proof-card">
+                    <div class="proof-icon">⭐️</div>
+                    <h3 class="proof-title">Exigence & relation durable</h3>
+                    <p class="proof-text">Transparence, qualité et suivi : une collaboration pensée pour durer.</p>
+                    <span class="proof-tag">Confiance</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- style css pour la section Création site internet -->
+    <style>
+        /* Aligne le texte avec la grille des cards */
+        .why-header .about-text {
+            max-width: 1100px; /* même largeur que ton container si c'est 1100 */
+            margin: 0 auto;
+        }
+
+        /* Limite la largeur du paragraphe pour lisibilité premium */
+        .why-header .about-text p {
+            max-width: 900px;     /* largeur visuelle proche des 3 cards */
+            margin: 30px auto 0;
+            line-height: 1.7;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .why-header {
+            max-width: 1100px; /* identique à proof-grid */
+            margin: 0 auto 60px;
+        }
+    </style>
+
+    <section class="section about-team" id="equipe">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="why-title">L'humain <span class="why-highlight">avant tout</span></h2>
+                <p class="why-subtitle">
+                    Une équipe passionnée par le design, la tech et la croissance.
+                </p>
+            </div>
+
+            <div class="team-layout">
+                <div class="team-copy reveal">
+                    <h3>Une équipe qui pense “produit”</h3>
+                    <p><!-- TODO -->
+                        Chez Artificio, on ne “fait pas un site” : on conçoit une expérience, une identité, et une machine à convertir.
+                    </p>
+                    <ul class="team-points">
+                        <li>Process clair & itératif</li>
+                        <li>Design system & cohérence</li>
+                        <li>Performance & SEO by default</li>
+                        <li>Accompagnement long terme</li>
+                    </ul>
+                </div>
+
+                <div class="team-grid">
+                    <!-- Placeholders photos -->
+                    <div class="team-card reveal">
+                        <div class="team-photo" aria-hidden="true"></div>
+                        <div class="team-meta">
+                            <strong>Nom Prénom</strong>
+                            <span>Rôle</span>
+                        </div>
+                    </div>
+
+                    <div class="team-card reveal">
+                        <div class="team-photo" aria-hidden="true"></div>
+                        <div class="team-meta">
+                            <strong>Nom Prénom</strong>
+                            <span>Rôle</span>
+                        </div>
+                    </div>
+
+                    <div class="team-card reveal">
+                        <div class="team-photo" aria-hidden="true"></div>
+                            <div class="team-meta">
+                                <strong>Nom Prénom</strong>
+                                <span>Rôle</span>
+                            </div>
+                        </div>
+
+                        <div class="team-card reveal">
+                            <div class="team-photo" aria-hidden="true"></div>
+                            <div class="team-meta">
+                                <strong>Nom Prénom</strong>
+                                <span>Rôle</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Why Artificio Section -->
+    <section id="why-artificio" class="section why-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="why-title">Pourquoi <span class="why-highlight">Choisir Artificio ?</span></h2>
+                <p class="section-subtitle">
+                    Des résultats concrets qui témoignent de notre expertise et de la confiance que nous accordent nos clients.
+                </p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number" data-count="200">0</div>
+                    <div class="stat-label">Clients accompagnés</div>
+                    <div class="stat-desc">Startups, PME et grands comptes nous font confiance</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label">Années d'expertise</div>
+                    <div class="stat-desc">Une expérience solide au service de vos projets</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-number" data-count="98">0</div>
+                    <div class="stat-label">% Satisfaction client</div>
+                    <div class="stat-desc">Un taux de satisfaction qui parle de lui-même</div>
+                </div>
+            </div> 
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="processus" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="why-title">Notre <span class="why-highlight">Processus de Travail</span></h2>
+                <p class="section-subtitle">
+                    Une méthodologie éprouvée en 4 étapes pour transformer vos idées en succès digitaux.
+                </p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Découverte & Analyse</h3>
+                    <p class="step-desc">
+                        Nous analysons votre marché, vos objectifs et votre audience pour définir la stratégie optimale.
+                    </p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Stratégie & Conception</h3>
+                    <p class="step-desc">
+                        Élaboration de la stratégie créative, des wireframes et du design system adapté à votre identité.
+                    </p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Développement & Création</h3>
+                    <p class="step-desc">
+                        Production des contenus, développement technique et intégration de toutes les fonctionnalités.
+                    </p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Lancement & Optimisation</h3>
+                    <p class="step-desc">
+                        Mise en ligne, formation, suivi des performances et optimisations continues.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="why-title">Contactez-<span class="why-highlight">Nous</span></h2>
+                <p class="why-subtitle">
+                    Racontez-nous votre projet et découvrons ensemble comment le transformer en succès.
+                </p>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </div>
+                <div class="form-group">
+                    <label for="nom">Nom de famille</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="entreprise">Entreprise</label>
+                    <input type="text" id="entreprise" name="entreprise">
+                </div>
+                <div class="form-group">
+                    <label for="ville">Ville</label>
+                    <input type="text" id="ville" name="ville" placeholder="Ex: Paris, New York, Londres...">
+                </div>
+                <div class="form-group">
+                    <label for="pays">Pays</label>
+                    <select id="pays" name="pays">
+                        <option value="">Sélectionnez votre pays</option>
+                        <option value="FR">France</option>
+                        <option value="BE">Belgique</option>
+                        <option value="CH">Suisse</option>
+                        <option value="CA">Canada</option>
+                        <option value="US">États-Unis</option>
+                        <option value="GB">Royaume-Uni</option>
+                        <option value="DE">Allemagne</option>
+                        <option value="ES">Espagne</option>
+                        <option value="IT">Italie</option>
+                        <option value="NL">Pays-Bas</option>
+                        <option value="AU">Australie</option>
+                        <option value="JP">Japon</option>
+                        <option value="BR">Brésil</option>
+                        <option value="MX">Mexique</option>
+                        <option value="IN">Inde</option>
+                        <option value="SG">Singapour</option>
+                        <option value="AE">Émirats Arabes Unis</option>
+                        <option value="MA">Maroc</option>
+                        <option value="TN">Tunisie</option>
+                        <option value="SN">Sénégal</option>
+                        <option value="CI">Côte d'Ivoire</option>
+                        <option value="OTHER">Autre</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="service">Service souhaité</label>
+                    <select id="service" name="service">
+                        <option value="">Sélectionnez un service</option>
+                        <option value="conseil">Conseil & Stratégie Digitale</option>
+                        <option value="design">Studio Graphique UI/UX</option>
+                        <option value="dev">Développement Web</option>
+                        <option value="maintenance">Maintenance & Sécurité</option>
+                        <option value="social">Social Média</option>
+                        <option value="marketing">Marketing Digital</option>
+                        <option value="multiple">Plusieurs services</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="projet">Décrivez votre projet</label>
+                    <textarea id="projet" name="projet" rows="5" placeholder="Parlez-nous de votre vision, vos objectifs, vos besoins, votre budget approximatif..." required></textarea>
+                </div>
+                <div class="form-group full-width">
+                    <button type="submit" class="submit-btn">Envoyer la Demande</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Page Loader -->
+    <!-- <div id="pageLoader" class="page-loader" aria-hidden="true">
+        <div class="loader-card">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Chargement…</p>
+        </div>
+    </div>   -->
+
+    <!-- FOOTER -->
+    <div id="site-footer"></div>
+
+    <!-- JavaScript -->
+    <script src="/js/includes.js"></script>
+    <script src="/js/script.js" defer></script>
+</body>
+</html>
